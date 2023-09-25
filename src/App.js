@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Skill from './Skill_brand';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Post } from './Post';
 
 
 // console.log(icons.javascript.split('/',3)[2].split('.',2)[0]);
@@ -33,14 +34,9 @@ function App() {
       house :'./iconos/house.svg',
       heart :'./iconos/heart.svg',
       search :'./iconos/search.svg',
-      edit :'./iconos/pen.svg',
       dots_vertical :'./iconos/dots-vertical.svg',
-      share :'./iconos/share.svg',
-      message :'./iconos/message.svg',
 
     });
-
-    const [skillName, setSkillName ] = useState('');
 
     const [ viewAllItems, setViewAllItems] = useState(false);
 
@@ -49,10 +45,52 @@ function App() {
       setViewAllItems( !viewAllItems );
     }
 
+
+    const skills = 
+    {
+      react_logo : './iconos/react.png',
+      javascript : './iconos/javascript.png',
+      nextjs : './iconos/nextjs.png',
+      node : './iconos/nodejs.png',
+      cpp : './iconos/cpp.png',
+      mongodb : './iconos/mongodb.png',
+      git : './iconos/git.png',
+      firebase : './iconos/firebase.png',
+      tailwind : './iconos/tailwind.png',
+    }
+
+    const skillsXL =
+    {
+      react_logo : './iconos/react.png',
+      javascript : './iconos/javascript.png',
+      nextjs : './iconos/nextjs.png',
+      node : './iconos/nodejs.png',
+      cpp : './iconos/cpp.png',
+      mongodb : './iconos/mongodb.png',
+      git : './iconos/git.png',
+      firebase : './iconos/firebase.png',
+      tailwind : './iconos/tailwind.png',
+      npm : './iconos/npm.png',
+      sass : './iconos/sass.png',
+      socket_io : './iconos/socket-io.png',
+      css3 : './iconos/css3.png',
+      bootstrap : './iconos/bootstrap.png',
+    }
+
+    const [skillList, setSkillList ] = useState( skills );
+
+    useEffect(()=>{
+
+      viewAllItems 
+                ? setSkillList( skillsXL )
+                : setSkillList( skills );
+
+    },[viewAllItems])
+
   return (
     <body className=''>
-      <main className="w-full h-screen  sm:h-50 flex flex-col  sm:justify-center items-center sm:h-screen sm:flex-row gap-x-5 text-sm">
-        <header className="relative w-5/6 h-16 sm:w-8 sm:h-1/4 my-auto box-content p-2 rounded-xl bg-gray-300/75  flex justify-around items-center sm:flex-col flex-row  ">
+      <main className="w-full h-screen  sm:h-50 flex flex-col  sm:justify-center items-center sm:h-screen sm:flex-row gap-x-5 text-sm ">
+        <header className="header relative w-5/6 h-16 sm:w-8 sm:h-1/4 my-auto box-content p-2 sm:hover:p-0 rounded-xl bg-gray-300/75 border-slate-300/50 flex justify-around items-center sm:flex-col flex-row sm:hover:h-2/5 sm:hover:w-12 ">
           
           
             <button className='w-12 sm:w-6'> <img className='hover:ring-2 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-0' src={ `${process.env.PUBLIC_URL + icons.house }` } /> </button>
@@ -71,7 +109,7 @@ function App() {
         <div className="main container flex flex-col sm:grid  grid-cols-1 grid-rows-1 sm:grid-cols-3 box-content w-100 sm:w-5/6 xl:w-2/3 flex h-5/6 ">
           
 
-          <div className="main__container sm:col-span-2 container p-2 pt-4 border sm:rounded-l-xl  bg-gray-300/75 ">
+          <div className="main__container sm:col-span-2 container p-2 pt-4 border border-slate-300/50  sm:rounded-l-xl  bg-gray-300/75 ">
             
             <div className="main__header  grid grid-cols-3 px-4 ">
               
@@ -86,53 +124,20 @@ function App() {
               <input type="text" placeholder="Start a thread" className="search col-span-3 p-2 mt-5 bg-gray-600/50 rounded" />
             </div>
             
-            <hr className="mt-5" />
+            <hr className="mt-5 border-slate-300/50" />
+            
             {/* <!--POSTSSSS--> */}
             <div className="main__posts">
-              {/* <!--POST--> */}
-            <div className="post my-4 mx-2">
-                {/* <!--POST HEADER--> */}
-                <div className="post__header grid grid-cols-2 ">
-              
-                  <div	className="post__header-profile static flex ">
-                    <img src={`${ icons.perfil }`} alt="Renzo  Marangon" className="mr-2 rounded-full w-12 self-center drop-shadow-md" />
-                    <p className="self-center w-40 absolute ml-14">Renzo Marangon</p>
-                  </div>       
-                  <div className="post__header-time flex items-center  justify-self-end mx-4">
-                      <p>6 min.</p>
-                      <button className='w-12 sm:w-3 opacity-75 ml-2'> <img className='' src={ `${process.env.PUBLIC_URL + icons.dots_vertical }` } /> </button>
-                      
-                  </div>
-                </div>
-              
-              {/* <!--POST MAIN--> */}
-                <div className="post__main">
-                  
-                  <p className="ml-14">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit autem accusantium molestias consequatur et error similique, id nemo, doloremque quod cum. Culpa in porro aperiam, exercitationem itaque veniam obcaecati harum.</p>
-                  
-                  <img className="ml-14 my-5" src="" alt="Post"/>
-                </div>
-              
-              {/* <!--POST FOOTER--> */}
-              <div className="post__footer ml-14">
-                <button>Corazon</button>
-                <button>Comentario</button>
-                <button>Repostre</button>
-                <button>Compartir</button>
-              </div>
-            </div>
-            {/* <!--POST--> */}
-            
-       
-            
+   
+              <Post />
             </div>
             
           </div>
           
           {/* <!--MAIN ASIDE--> */}
-          <div className="h-full  flex flex-col sm:col-span-1 side__container bg-gray-300/75  border-t border-r  sm:rounded-r-xl   pt-1 grid grid-rows-5   sm:h-full">
+          <div className="h-full  flex flex-col sm:col-span-1 side__container bg-gray-300/75  border-t border-r border-slate-300/50 sm:rounded-r-xl   pt-1 grid grid-rows-6   sm:h-full">
             {/* <!--MAIN ASIDE TOP--> */}
-            <div className="side__container-top row-span-3 p-2 flex flex-col  ">
+            <div className="side__container-top row-span-2 sm:row-span-4 p-2 flex flex-col  ">
               
               
                 <h4 className="text-center">Sugerencia de tecnologías</h4>
@@ -140,9 +145,11 @@ function App() {
                 
             
               {/* <!--SIDE CONTAINER SKILLS--> */}
-              <div className={`side__container-skills flex flex-col text-xs h-full ${ viewAllItems ? 'overflow-y-auto' : 'overflow-hidden' }`}>
+              <div className={`side__container-skills flex flex-col text-xs h-full items-center pt-2 ${ viewAllItems ? 'overflow-y-auto' : 'overflow-hidden' }`}>
 
-                {Object.keys(icons).map( (icon) => {
+
+
+                {Object.keys( skillList ).map( (icon) => {
 
                   const alt = icons[icon].split('/',3)[2].split('.',2)[0];
                   const altMayus = alt.charAt(0).toUpperCase() + alt.slice(1);
@@ -162,7 +169,7 @@ function App() {
 
             </div>
             {/* <!--MAIN ASIDE BOTTOM--> */}
-            <div className="side__container-bottom row-span-2 border-t flex flex-col p-2 ">
+            <div className="side__container-bottom row-span-2 bg-black border-t border-slate-300/50 flex flex-col p-2 ">
               
                 <h4 className="col-span-2 text-center">Latest work</h4>
             

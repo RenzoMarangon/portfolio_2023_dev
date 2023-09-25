@@ -10,18 +10,18 @@ const Slider = ({ images }) => {
   const splideOptions = {
     type: 'slide', // Tipo de slider
     rewind: true, // Habilita el rebobinado
-    perPage: 1, // Número de elementos por página
+    perPage: 2, // Número de elementos por página
   };
 
   return (
-    <div className="slider-container w-1/4 h-1/4 " >
-      <Splide options={splideOptions} className='container ' >
+    <div className=" " >
+      <Splide options={splideOptions} className='container flex items-center justify-center w-3/4 h-3/4 m-auto' >
         {
         images.map( image =>
         {
             return(
                 <SplideSlide className='rounded shadow'>
-                    <img src={`${process.env.PUBLIC_URL + '/iconos/' + image}`} alt="Slide" className='rounded shadow'/>
+                    <img src={`${process.env.PUBLIC_URL + '/iconos/' + image}`} alt="Slide" className='mx-1'/>
                 </SplideSlide>
             )
         })
