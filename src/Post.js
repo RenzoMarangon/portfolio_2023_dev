@@ -7,26 +7,25 @@ export const Post = () => {
       perfil : './iconos/perfil.jpg',
       user: './iconos/user.svg',
       heart:'./iconos/heart.svg',
-      message:'./iconos/message.svg'
+      message:'./iconos/message.svg',
+      edit:'./iconos/pen.svg',
+      share:'./iconos/share.svg',
+      message:'./iconos/message.svg',
+      dots_vertical :'./iconos/dots-vertical.svg',
+
     }
 
-    const images = [
+   
 
-     ]
 
-    const iconx = [
-      './iconos/pen.svg',
-      './iconos/share.svg',
-      './iconos/message.svg',
-    ]
   return (
     <div className="post my-4 mx-2 ">
         {/* <!--POST HEADER--> */}
         <div className="post__header grid grid-cols-2 ">
         
             <div	className="post__header-profile  flex ">
-            <img src={`${ icons.perfil }`} alt="Renzo  Marangon" className="mr-2 rounded-full w-12 self-center drop-shadow-md" />
-            <p className="self-center w-40 absolute ml-14">Renzo Marangon</p>
+            <img src={`${ icons.perfil }`} alt="Renzo Marangon" className="mr-2 rounded-full w-12 self-center drop-shadow-md" />
+            <p className="self-center w-40 absolute ml-20">Renzo Marangon</p>
             </div>       
             <div className="post__header-time flex items-center  justify-self-end mx-4">
                 <p>6 min.</p>
@@ -36,18 +35,20 @@ export const Post = () => {
         </div>
         
         {/* <!--POST MAIN--> */}
-        <div className="post__main flex items-center justify-center  ">
-            
-            <Slider  images={ images }  />
+        <div className="post__main h-44">
 
+            <p>Este es un proyesto</p>
+
+            <div key={'eeeeeeeeeeeee'} className='col-span-2 sm:col-span-1 sm:row-span-1 w-full  '>
+              {/* <img className='w-full h-full object-fill' src={`${process.env.PUBLIC_URL + image}`} alt="Slide" /> */}
+            </div>
         </div>
         
         {/* <!--POST FOOTER--> */}
-        <div className="post__footer ml-14">
-        <button><img src={`${process.env.PUBLIC_URL + iconx.heart}`} /></button>
-        <button>Comentario</button>
-        <button>Repostre</button>
-        <button>Compartir</button>
+        <div className="post__footer ml-14 flex items-center justify-around w-1/6">
+          <button><img className='w-4' src={`${process.env.PUBLIC_URL + icons.heart}`} /></button>
+          <button><img className='w-4' src={`${process.env.PUBLIC_URL + icons.message}`} /></button>
+          <button><img className='w-4' src={`${process.env.PUBLIC_URL + icons.share}`} /></button>
         </div>
     </div>
   )

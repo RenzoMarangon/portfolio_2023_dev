@@ -29,11 +29,46 @@
 
 }
 
-.header{
-  transition: all ease-in-out .1s;
+
+
+::-webkit-scrollbar {
+  width: 5px; /* Ancho de la barra de desplazamiento */
+  border-radius: 5px;
 }
 
-main{
+::-webkit-scrollbar-track {
+  background-color: #f1f1f11e; /* Color del fondo de la barra de desplazamiento */
+  border-radius: 5px;
 
-  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #88888854; /* Color del pulgar de la barra de desplazamiento */
+  border-radius: 5px; /* Radio de borde del pulgar */
+}
+
+.main {
+  background-color: rgba(199, 199, 199, 0.315);
+  border-radius: 12px;
+}
+.header{
+  background-color: rgba(199, 199, 199, 0.315);
+
+}
+
+.borde{
+  border-color: rgba(255, 255, 255, 0.281);
+}
+
+.main-aside{
+  border-left: solid rgba(255, 255, 255, 0.281) 1px;
+}
+
+.side__container-bottom{
+  border-top: solid rgba(255, 255, 255, 0.281) 1px;
+
+}
+
+input::placeholder{
+  color:rgb(77, 77, 77);
 }
