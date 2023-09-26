@@ -74,19 +74,19 @@ function App() {
             
             <div className="main__header flex flex-col">
               
-              <div className='grid  grid-cols-12 mb-4 '>
-                <img src={`${icons.user}`} alt="Invitado" className="col-span-1 w-10 p-1 rounded-full shadow bg-gray-100/50 self-center justify-self-center" />
-                <input type="text" placeholder="¿En qué piensas?" className="col-span-11  search col-span-3 px-3 py-5 mt-1 outline-none text-black shadow bg-gray-100/50 rounded w-full" />
+              <div className='grid  grid-cols-10 mb-4 '>
+                <img src={`${icons.user}`} alt="Invitado" className="col-span-1 w-10 p-1 mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center" />
+                <input type="text" placeholder="¿En qué piensas?" className="col-span-9  search col-span-3 px-3 py-5 mt-1 outline-none text-black shadow bg-gray-100/50 rounded w-full" />
               </div>
 
 
               {/* BUTTONS */}
-              <div className='grid  grid-cols-12'>
+              <div className='grid  grid-cols-10'>
                 <div className='col-span-1'></div>
 
-                <div className='flex col-span-11 items-center justify-between'>
+                <div className='flex col-span-9 items-center justify-between'>
 
-                  <div className='w-1/5 flex justify-between'>
+                  <div className='w-40 flex justify-between'>
 
                   <button>
                     <img src={`${icons.image}`} alt="Upload image" className=" w-6 rounded-full " />
