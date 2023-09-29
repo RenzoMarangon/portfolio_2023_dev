@@ -1,5 +1,4 @@
 import React from 'react'
-import { Header } from './Header';
 import Skill from './Skill_brand';
 import { useEffect, useState } from 'react';
 import { Post } from './Post';
@@ -55,7 +54,6 @@ export const Home = () => {
 
   return (
     <>
-        <Header />
         
         {/* <!--MAIN--> */}
         <div className="main container flex flex-col sm:grid  grid-cols-1 grid-rows-1 sm:grid-cols-4 box-content w-100 sm:w-5/6 xl:w-2/3 flex h-5/6 ">

@@ -2,8 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Home } from './Home';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { Header } from './Header';
+import { AboutMe } from './AboutMe';
 
 
 
@@ -15,34 +17,25 @@ function App() {
 const [vistas, setVistas ] = useState(
   {
     home:true,
-  }) 
-
-const cambiarVista = ( vistaSeleccionada ) =>
-{
-  let vistasActuales = {};
-  
-
-  Object.entries( vistas ).map( ( objetoVista) =>{
-    const [vista, valor] = objetoVista;
-
-
-    if(vista == vistaSeleccionada ) vistasActuales = { ...vistas, [vista]:valor}
-    else vistasActuales = { ...vistas, [vista]:false};
-
-    return true;
+    profile:false,
   }) 
 
 
-}
+
 
   return (
     <body className=''>
       <main className="w-full h-screen shadow sm:h-50 flex flex-col  sm:justify-center items-center sm:h-screen sm:flex-row gap-x-5 text-sm ">
         
-        <button onClick={cambiarVista('home')}> Moxtrar </button>
+        {/* <button onClick={()=>cambiarVista('home')}> Moxtrar </button> */}
+
+        <Header vistas = { vistas } setVistas = { setVistas }/>
 
         {vistas.home && <Home />}
+        
 
+        { vistas.profile && <AboutMe /> }
+      
       </main>
     </body>
   );
