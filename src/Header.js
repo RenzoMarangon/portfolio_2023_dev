@@ -35,7 +35,7 @@ export const Header = ({vistas, setVistas}) =>
   }
 
     return(
-        <header className="header shadow relative w-5/6 h-16 sm:h-2/5 sm:w-12 sm:p-0 my-auto box-content p-2 rounded-full    flex justify-around items-center sm:flex-col flex-row  ">
+        <header className="header shadow absolute bottom-0 w-screen h-100 absolute  sm:relative  sm:h-2/5 sm:w-12 sm:p-0 my-auto box-content  sm:rounded-full    flex justify-evenly sm:justify-around items-center sm:flex-col flex-row   ">
           
           
             <button onClick={()=>cambiarVista('home')} className='w-12 sm:w-6 '> <img className='hover:ring-2 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-0' src={ `${process.env.PUBLIC_URL + icons.house }` } /> </button>

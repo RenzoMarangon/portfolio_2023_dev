@@ -56,12 +56,12 @@ export const Home = () => {
     <>
         
         {/* <!--MAIN--> */}
-        <div className="main container flex flex-col sm:grid  grid-cols-1 grid-rows-1 sm:grid-cols-4 box-content w-100 sm:w-5/6 xl:w-2/3 flex h-5/6 ">
+        <div className="main  overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
           
 
-          <div className="main__container sm:col-span-3 container p-2 pt-4   overflow-auto    ">
+          <div className="main__container h-100 sm:col-span-3 container p-2 pt-4 sm:overflow-auto">
             
-            <div className="main__header flex flex-col">
+            <div className="main__header flex flex-col ">
               
               <div className='grid  grid-cols-10 mb-4 '>
                 <img src={`${icons.user}`} alt="Invitado" className="col-span-1 w-10 p-1 mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center" />
@@ -112,9 +112,9 @@ export const Home = () => {
           </div>
           
           {/* <!--MAIN ASIDE--> */}
-          <div className="main-aside h-full  flex flex-col sm:col-span-1 side__container sm:rounded-r-xl  pt-1 grid grid-rows-6 ">
+          <div className="main-aside h-100   flex flex-col sm:col-span-1 side__container sm:rounded-r-xl  pt-1 grid grid-rows-3 mb-12 sm:mb-0 sm:grid-rows-6 ">
             {/* <!--MAIN ASIDE TOP--> */}
-            <div className="side__container-top row-span-2 sm:row-span-4 p-2 flex flex-col  ">
+            <div className="side__container-top  row-span-2 sm:row-span-4 p-2 flex flex-col  ">
               
               
                 <h4 className="text-center">Sugerencia de tecnologías</h4>
@@ -122,7 +122,7 @@ export const Home = () => {
                 
             
               {/* <!--SIDE CONTAINER SKILLS--> */}
-              <div className={` relative side__container-skills flex flex-col text-xs h-full items-left pt-2 overflow-y-auto`}>
+              <div className={` relative side__container-skills flex flex-col text-xs h-full items-left pt-2 sm:overflow-y-auto`}>
 
 
 
@@ -143,7 +143,7 @@ export const Home = () => {
 
             </div>
             {/* <!--MAIN ASIDE BOTTOM--> */}
-            <div className="side__container-bottom row-span-2   flex flex-col p-2 ">
+            <div className="side__container-bottom row-span-2 h-100   flex flex-col p-2 ">
               
                 <h4 className="col-span-2 text-center">Último proyecto</h4>
             
