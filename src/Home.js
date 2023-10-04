@@ -78,20 +78,20 @@ export const Home = () => {
                   <div className='w-40 flex justify-between'>
 
                   <button>
-                    <img src={`${icons.image}`} alt="Upload image" className=" w-6 rounded-full " />
+                    <img src={`${icons.image}`} alt="Upload image" className="w-7 sm:w-6 rounded-full " />
                   </button>
                   <button>
-                    <img src={`${icons.gif}`} alt="Gif" className=" w-6 rounded-full " />
+                    <img src={`${icons.gif}`} alt="Gif" className="w-7 sm:w-6 rounded-full " />
                   </button>
                   <button>
-                    <img src={`${icons.emoji}`} alt="Invitado" className=" w-6 rounded-full " />
+                    <img src={`${icons.emoji}`} alt="Invitado" className="w-7 sm:w-6 rounded-full " />
                   </button>
                   <button>
-                    <img src={`${icons.pin}`} alt="Invitado" className=" w-6 rounded-full " />
+                    <img src={`${icons.pin}`} alt="Invitado" className="w-7 sm:w-6 rounded-full " />
                   </button>
                   </div>
 
-                  <button className="self-center justify-self-end  px-5 py-1 shadow bg-gray-100/50 text-white rounded-full"> Post </button>
+                  <button className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Post </button>
 
                 </div>
 
@@ -112,17 +112,17 @@ export const Home = () => {
           </div>
           
           {/* <!--MAIN ASIDE--> */}
-          <div className="main-aside h-100   flex flex-col sm:col-span-1 side__container sm:rounded-r-xl  pt-1 grid grid-rows-3 mb-12 sm:mb-0 sm:grid-rows-6 ">
+          <div className="main-aside sm:h-100 h-full  flex flex-col sm:col-span-1 side__container sm:rounded-r-xl  pt-1 grid grid-rows-5  sm:grid-rows-6 ">
             {/* <!--MAIN ASIDE TOP--> */}
-            <div className="side__container-top  row-span-2 sm:row-span-4 p-2 flex flex-col  ">
+            <div className="side__container-top  row-span-3 sm:row-span-4 p-2 flex flex-col  ">
               
               
-                <h4 className="text-center">Sugerencia de tecnologías</h4>
+                <h4 className="text-center mb-3 sm:mb-0">Sugerencia de tecnologías</h4>
 
                 
             
               {/* <!--SIDE CONTAINER SKILLS--> */}
-              <div className={` relative side__container-skills flex flex-col text-xs h-full items-left pt-2 sm:overflow-y-auto`}>
+              <div className={` relative side__container-skills flex flex-col text-xs h-100 sm:h-full items-left pt-2 overflow-y-auto`}>
 
 
 
@@ -157,6 +157,9 @@ export const Home = () => {
 
             </div>
           </div>
+
+          {/*Espacio para el header */}
+          <div className='w-full pt-10 sm:w-0 sm:pt-0'></div>
         </div>
     </>
   )
