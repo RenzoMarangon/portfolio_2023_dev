@@ -7,7 +7,7 @@ export const AboutMe = () => {
   return (
 
 
-    <div className='about-me grid grid-cols-3 grid-rows-6  w-100 sm:w-5/6 xl:w-2/3 flex h-5/6 rounded-2xl'>
+    <div className='about-me grid grid-cols-3 grid-rows-6  w-full h-full sm:w-5/6 xl:w-2/3 flex sm:h-5/6 sm:rounded-2xl'>
         <div className='col-span-1 row-span-1'></div>
         <h2 className='col-span-2 row-span-1 self-center font-bold text-lg'>Acerca de mí</h2>
 

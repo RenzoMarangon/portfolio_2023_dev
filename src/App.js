@@ -31,14 +31,14 @@ const [vistas, setVistas ] = useState(
 
   return (
     <body className=''>
-      <main className="w-full h-screen shadow sm:h-50 flex    sm:justify-center items-center sm:h-screen sm:flex-row gap-x-5 text-sm ">
+      <main className="w-full h-screen shadow sm:h-50 flex    sm:justify-center items-center  sm:flex-row gap-x-5 text-sm ">
         
         {/* <button onClick={()=>cambiarVista('home')}> Moxtrar </button> */}
 
         <Header vistas = { vistas } setVistas = { setVistas }/>
 
         {vistas.home && <Home />}
-        { vistas.profile && <AboutMe /> }
+        {vistas.profile && <AboutMe /> }
         {vistas.contact && <Contact /> }
         {vistas.likes && <Likes /> }
         {vistas.search && <Search /> }

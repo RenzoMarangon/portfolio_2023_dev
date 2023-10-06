@@ -156,10 +156,11 @@ export const Home = () => {
 
 
             </div>
+            {/*Espacio para el header */}
+          <div className='header_space '></div>
           </div>
 
-          {/*Espacio para el header */}
-          <div className='w-full pt-10 sm:w-0 sm:pt-0'></div>
+          
         </div>
     </>
   )
