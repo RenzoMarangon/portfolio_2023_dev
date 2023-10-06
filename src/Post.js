@@ -1,5 +1,5 @@
 import React from 'react'
-import Slider from './Splider'
+import Slider from './views/Splider'
 
 export const Post = () => {
 

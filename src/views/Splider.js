@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '@splidejs/splide/dist/css/splide.min.css'; // Importa los estilos de Splide.js
 import { Splide, SplideSlide } from '@splidejs/react-splide'; // Importa los componentes de Splide.js
-import './Slider.css'; // Importa tus estilos personalizados
-import './App.css';
+import '../styles/Slider.css'; // Importa tus estilos personalizados
+import '../styles/App.css';
 
 // import perfil from './iconos/perfil.jpg';
 

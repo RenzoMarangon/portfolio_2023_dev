@@ -50,7 +50,7 @@
   border-radius: 0px; /* Radio de borde del pulgar */
 }
 
-.main, .about-me {
+.main, .about-me, .contact, .likes, .search {
   background-color: rgba(199, 199, 199, 0.555);
 }
 

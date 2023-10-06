@@ -1,11 +1,14 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 
-import { Home } from './Home';
+import { Home } from './views/Home';
 import { useEffect, useState } from 'react';
 
-import { Header } from './Header';
-import { AboutMe } from './AboutMe';
+import { Header } from './views/Header';
+import { AboutMe } from './views/AboutMe';
+import { Contact } from './views/Contact';
+import { Likes } from './views/Likes';
+import { Search } from './views/Search';
 
 
 
@@ -18,6 +21,9 @@ const [vistas, setVistas ] = useState(
   {
     home:true,
     profile:false,
+    contact:false,
+    likes:false,
+    search:false,
   }) 
 
 
@@ -32,9 +38,11 @@ const [vistas, setVistas ] = useState(
         <Header vistas = { vistas } setVistas = { setVistas }/>
 
         {vistas.home && <Home />}
-        
-
         { vistas.profile && <AboutMe /> }
+        {vistas.contact && <Contact /> }
+        {vistas.likes && <Likes /> }
+        {vistas.search && <Search /> }
+
       
       </main>
     </body>

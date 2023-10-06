@@ -1,7 +1,7 @@
 import React from 'react'
 import Skill from './Skill_brand';
 import { useEffect, useState } from 'react';
-import { Post } from './Post';
+import { Post } from '../Post';
 
 export const Home = () => {
 
