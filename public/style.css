@@ -60,3 +60,52 @@ label span {
 .splide--nav {
   margin-top: 1rem;
 }
+
+
+
+.exp_educ ul{
+  position:relative;
+}
+
+.exp_educ ul::before{
+  border-left:2px #fc0e46 solid;
+  width:2px;
+  height:calc( 100% - 55px );
+  content:'';
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index: -1;
+}
+
+.exp_educ ul li{
+  padding-left: 10px;
+}
+
+.exp_educ li{
+  position: relative;
+  margin: 6px 0
+}
+
+.exp_educ li:before{
+  width: 7px;
+  height:7px;
+  border-radius: 15px;
+  content:'';
+  background-color: #F0446B;
+  left: -3px;
+  top: 8px;
+  position: absolute;
+}
+
+.text-pink{
+  color: #F0446B;
+  font-weight: bold;
+  text-shadow:rgba(190, 0, 0, 0.541) 1px 1px;
+}
+
+.text-wh{
+  color:white;
+  
+  text-shadow:rgba(114, 114, 114, 0.575) 2px 2px;
+}

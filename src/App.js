@@ -19,8 +19,8 @@ function App() {
 // console.log(icons.javascript.split('/',3)[2].split('.',2)[0]);
 const [vistas, setVistas ] = useState(
   {
-    home:true,
-    profile:false,
+    home:false,
+    profile:true,
     contact:false,
     likes:false,
     search:false,

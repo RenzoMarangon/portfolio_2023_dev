@@ -81,7 +81,7 @@ export const Home = () => {
                     <img src={`${icons.image}`} alt="Upload image" className="w-7 sm:w-6 rounded-full " />
                   </button>
                   <button>
-                    <img src={`${icons.gif}`} alt="Gif" className="w-7 sm:w-6 rounded-full " />
+                    <img src={`${icons.gif}`} alt="Gif" className="w-6 sm:w-5  rounded border-2 " />
                   </button>
                   <button>
                     <img src={`${icons.emoji}`} alt="Invitado" className="w-7 sm:w-6 rounded-full " />
