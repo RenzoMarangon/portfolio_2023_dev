@@ -93,6 +93,7 @@ label span {
   border-radius: 15px;
   content:'';
   background-color: #F0446B;
+  box-shadow: black 1px 1px;
   left: -3px;
   top: 8px;
   position: absolute;
@@ -101,11 +102,20 @@ label span {
 .text-pink{
   color: #F0446B;
   font-weight: bold;
-  text-shadow:rgba(190, 0, 0, 0.541) 1px 1px;
+  text-shadow:black 1px 1px;
 }
 
 .text-wh{
   color:white;
   
   text-shadow:rgba(114, 114, 114, 0.575) 2px 2px;
+}
+
+
+.transicion{
+  transition: all ease-in-out .1s;
+}
+
+.agrandar:hover{
+  transform: scale(1.1);
 }

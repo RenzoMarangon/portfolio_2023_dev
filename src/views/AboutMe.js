@@ -2,22 +2,35 @@ import React from 'react'
 
 export const AboutMe = () => {
 
-    const perfil = process.env.PUBLIC_URL + './iconos/perfil.png';
+
+    const icons = {
+        perfil : process.env.PUBLIC_URL + './iconos/perfil.png',
+        linkedin : process.env.PUBLIC_URL + './iconos/linkedin_w.png',
+        github : process.env.PUBLIC_URL + './iconos/github_w.png',
+        email : process.env.PUBLIC_URL + './iconos/mail.png',
+    }
+
 
   return (
 
 
     <div className='about-me flex flex-col items-center sm:grid grid-cols-2 grid-rows-7  w-full h-full overflow-y-auto sm:w-5/6 xl:w-2/3 flex sm:h-5/6 sm:rounded-2xl'>
-        <h2 className='my-5 sm:my-0  col-span-2 row-span-2  text-center font-bold text-lg'>Acerca de mí</h2>
+        <h2 className='my-5 sm:my-0 sm:mt-5  col-span-2 row-span-2  text-center font-bold text-lg '>Acerca de mí</h2>
 
 
         <div className='w-100 col-span-1 row-span-4  mx-auto flex flex-col items-center self-start xl:mt-3'>
             <div className='flex justify-center  backdrop-blur-sm rounded-2xl mt-10  shadow-lg w-9/12 sm:w-10/12 '>
-                <img src={`${ perfil }`} className='w-8/12 items-self-start'  />
-                
+                <img src={`${ icons.perfil }`} className='w-8/12 items-self-start'  />
             </div>
             
             <p className='w-9/12 sm:w-10/12 mt-5'>lorem ipsum</p>
+            
+            <div className='w-9/12 sm:w-6/12 mt-5 flex justify-around mb-5'>
+                <button className='w-2/12 sm:w-3/12'><img className=' hover:bg-gray-500 rounded-lg transicion agrandar' src={icons.github} alt="GitHub" /></button>
+                <button className='w-2/12 sm:w-3/12'><img className='hover:bg-blue-600 rounded-lg transicion agrandar' src={icons.linkedin} alt="LinkedIn" /></button>
+                <button className='w-2/12 sm:w-3/12'><img className='hover:bg-gray-500/50 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /></button>
+            </div>
+
         </div>
 
 
@@ -69,17 +82,17 @@ export const AboutMe = () => {
                         <p className='font-bold text-wh'>Coderhouse</p>
                         <p>Desarrollador Web FrontEnd</p>
                     </li>
-                    <li className=''>
+                    {/* <li className=''>
                         <p className='text-pink'>2022</p>
                         <p className='font-bold text-wh'>EducacionIT</p>
                         <p>Desarrollador backend en Node.js</p>
-                    </li>
+                    </li> */}
        
                 </ul>
 
             </div>
+            <button className='self-start my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm '> Descargar cv</button>
 
-            <button className='row-span-1 self-start my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm '> Descargar cv</button>
 
             {/*Espacio para el header */}
             <div className='header_space '></div>
