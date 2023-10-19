@@ -25,10 +25,10 @@ export const AboutMe = () => {
             
             <p className='w-9/12 sm:w-10/12 mt-5'>lorem ipsum</p>
             
-            <div className='w-9/12 sm:w-6/12 mt-5 flex justify-around mb-5'>
-                <button className='w-2/12 sm:w-3/12'><img className=' hover:bg-gray-500 rounded-lg transicion agrandar' src={icons.github} alt="GitHub" /></button>
-                <button className='w-2/12 sm:w-3/12'><img className='hover:bg-blue-600 rounded-lg transicion agrandar' src={icons.linkedin} alt="LinkedIn" /></button>
-                <button className='w-2/12 sm:w-3/12'><img className='hover:bg-gray-500/50 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /></button>
+            <div className='w-9/12 sm:w-5/12 mt-5 sm:mt-0 flex justify-around mb-5'>
+                <button className='w-2/12 '><img className=' hover:bg-gray-500 rounded-lg transicion agrandar' src={icons.github} alt="GitHub" /></button>
+                <button className='w-2/12 '><img className='hover:bg-blue-600 rounded-lg transicion agrandar' src={icons.linkedin} alt="LinkedIn" /></button>
+                <button className='w-2/12 '><img className='hover:bg-gray-500/50 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /></button>
             </div>
 
         </div>
