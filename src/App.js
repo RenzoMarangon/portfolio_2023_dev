@@ -20,10 +20,10 @@ function App() {
 const [vistas, setVistas ] = useState(
   {
     home:false,
-    profile:true,
+    profile:false,
     contact:false,
     likes:false,
-    search:false,
+    search:true,
   }) 
 
 

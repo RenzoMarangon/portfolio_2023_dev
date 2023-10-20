@@ -65,6 +65,8 @@ label span {
 
 .exp_educ ul{
   position:relative;
+  width: 300px;
+
 }
 
 .exp_educ ul::before{
@@ -76,6 +78,8 @@ label span {
   left:0px;
   top:0px;
   z-index: -1;
+  
+
 }
 
 .exp_educ ul li{
@@ -119,3 +123,4 @@ label span {
 .agrandar:hover{
   transform: scale(1.1);
 }
+
