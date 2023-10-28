@@ -156,7 +156,7 @@ export const Home = () => {
 
 
             </div>
-            {/*Espacio para el header */}
+            {/*Espacio para el nav en mobile */}
           <div className='header_space '></div>
           </div>
 

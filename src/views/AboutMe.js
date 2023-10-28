@@ -8,7 +8,7 @@ export const AboutMe = () => {
         perfil : process.env.PUBLIC_URL + './iconos/perfil.png',
         linkedin : process.env.PUBLIC_URL + './iconos/linkedin_w.png',
         github : process.env.PUBLIC_URL + './iconos/github_w.png',
-        email : process.env.PUBLIC_URL + './iconos/mail.png',
+        email : process.env.PUBLIC_URL + './iconos/mail_w.png',
     }
 
     const [ educExp, setEducExp ] = useState({
@@ -76,7 +76,7 @@ export const AboutMe = () => {
             <button className='self-start my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm '> Descargar cv</button>
 
 
-            {/*Espacio para el header */}
+            {/*Espacio para el nav en mobile */}
             <div className='header_space '></div>
         </div>
 

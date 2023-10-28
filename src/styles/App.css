@@ -111,9 +111,7 @@
 
 }
 
-input::placeholder, textarea::placeholder{
-  color:rgb(77, 77, 77);
-}
+
 
 textarea{
   resize: none;

@@ -45,7 +45,7 @@ export const Contact = () => {
         </div>
     </div>
 
-    <form onSubmit={ sendForm } className='flex flex-col w-5/6 mx-auto'>
+    <form onSubmit={ sendForm } className='flex flex-col w-5/6 mx-auto mt-10 p-2 backdrop-blur shadow-xl rounded-xl'>
         <input className='text-black bg-gray-100/70 w-full my-2 py-4 px-2 rounded shadow-lg' name='nombre' type='text' placeholder='Nombre' onChange={ escribirInput } value={ inputValues.nombre } required />
         <input className='text-black bg-gray-100/70 w-full my-2 py-4 px-2 rounded shadow-lg' name='asunto' type='text' placeholder='Asunto' onChange={ escribirInput } value={ inputValues.asunto } required/>
         <input className='text-black bg-gray-100/70 w-full my-2 py-4 px-2 rounded shadow-lg' name='nombre' type='email' placeholder='Email' onChange={ escribirInput } value={ inputValues.email } required/>

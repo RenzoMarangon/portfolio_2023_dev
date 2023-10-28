@@ -28,11 +28,15 @@ label {
 }
 
 input {
-  font-family: inherit;
   height: 1.5rem;
   width: 4rem;
   margin-right: 3px;
 }
+
+input::placeholder, textarea::placeholder{
+  color:rgb(77, 77, 77);
+}
+
 
 label span {
   margin-right: 4px;
