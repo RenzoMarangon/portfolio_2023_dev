@@ -1,8 +1,7 @@
 import React from 'react'
-import Skill from './Skill_brand';
 import { useEffect, useState } from 'react';
+import Skill from './Skill_brand';
 import { Post } from '../Post';
-
 export const Home = () => {
 
     const [icons, setIcons] = useState(
@@ -123,12 +122,10 @@ export const Home = () => {
             
               {/* <!--SIDE CONTAINER SKILLS--> */}
               <div className={` relative side__container-skills flex flex-col text-xs h-100 sm:h-full items-left pt-2 overflow-y-auto`}>
-
-
-
                 {Object.keys( skills ).map( (skill) => {
+                  
 
-                  const alt = skills[skill].split('/',3)[2].split('.',2)[0].split('_')[0];
+                  const alt = skill.split('_')[0];
                   const altMayus = alt.charAt(0).toUpperCase() + alt.slice(1);
 
                   return <Skill key={skills[skill]} icon={skills[skill]} skillName={ altMayus }></Skill>

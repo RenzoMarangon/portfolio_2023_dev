@@ -106,11 +106,11 @@ export const Search = () => {
     <form after="formx" onSubmit={ sendForm } className='flex flex-col justify-between w-11/12 mx-auto relative'>
         
         <div className='flex  justify-between'>
-          <input className={`text-black bg-gray-100/70  my-2 py-4 px-2 shadow-lg w-10/12 ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' }`} name='search' type='text' placeholder='Buscar' onChange={ escribirInput } value={ inputValues.search } required />
-          <button className='self-end justify-self-end box-content my-2 px-2 sm:px-4 py-1.5 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm '>Buscar</button>
+          <input className={`text-black bg-gray-100/70  my-4 py-4 px-2  shadow-lg w-10/12 ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' }`} name='search' type='text' placeholder='Buscar' onChange={ escribirInput } value={ inputValues.search } required />
+          <button className='self-end justify-self-end box-content mb-4 px-2 sm:px-4 py-1.5 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm '>Buscar</button>
         </div>
 
-        <div class=" bg-gray-100/ w-10/12 bg-gray-100/90 shadow-lg rounded-b absolute top-10 text-black z-50">
+        <div class=" bg-gray-100/ w-10/12 bg-gray-100/90 shadow-lg rounded-b absolute top-12 text-black z-50">
           <p>{sugerencias.map( r => ( <p className='my-1 cursor-pointer hover:bg-gray-300/50 box-border p-1 ' key={r.id} onClick={ mostrarResultado }>{r.title}</p> ))}</p>
          </div>
     </form>
