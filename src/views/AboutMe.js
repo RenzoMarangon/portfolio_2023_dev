@@ -4,6 +4,15 @@ import { EducacionExperiencia } from '../components/EducacionExperiencia'
 export const AboutMe = () => {
 
 
+    const downloadFile = () => {
+        const link = document.createElement('a');
+        link.href = './cv_renzo_marangon.pdf'; 
+        link.download = 'cv_renzo_marangon.pdf'; 
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+
     const icons = {
         perfil : process.env.PUBLIC_URL + './iconos/perfil.png',
         linkedin : process.env.PUBLIC_URL + './iconos/linkedin_w.png',
@@ -73,7 +82,7 @@ export const AboutMe = () => {
             
             <EducacionExperiencia educExp={ educExp } setEducExp = { setEducExp } />
 
-            <button className='self-start my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm '> Descargar cv</button>
+            <button className='self-start my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' onClick={()=>{downloadFile()}}> Descargar cv</button>
 
 
             {/*Espacio para el nav en mobile */}
