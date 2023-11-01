@@ -1,32 +1,17 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Post } from '../Post';
-
+import { proyectos } from '../helpers/proyects.json';
 
 
 
 export const Search = () => {
 
 
-  const [cositas, setCositas ] = useState([]);
-
 
   const [ sugerencias, setSugerencias ] = useState([]);
 
   const [ resultados, setResultados ] = useState([]);
-
- 
-
-
-  useEffect(()=>{
-    fetch('https://fakestoreapi.com/products/')
-    .then(res=>res.json())
-    .then(json=> setCositas(json))
-
-
-  },[])
- 
-
 
 
   const [ inputValues, setInputValues ]= useState({
@@ -46,6 +31,14 @@ export const Search = () => {
 
   }
 
+  const include = ( string ) =>
+  {
+    // Escapamos los caracteres especiales de la consulta y creamos una expresión regular
+    const escapedQuery = inputValues.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escapedQuery, 'i');
+    return string.toLowerCase().match(regex.source.toLowerCase());
+  }
+
   const sendForm = (e) =>
   {
     e.preventDefault();
@@ -56,14 +49,9 @@ export const Search = () => {
       console.log('nadaaa');
     }
 
-    // Escapamos los caracteres especiales de la consulta y creamos una expresión regular
-    const escapedQuery = inputValues.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp(escapedQuery, 'i');
-
-    // Filtramos el conjunto de datos con la expresión regular
     const data = [];
-    cositas.map( (obj) => obj.title.toLowerCase().match(regex.source.toLowerCase()) && data.push(obj) )
-  
+    // Filtramos el conjunto de datos con la expresión regular
+    proyectos.map( (obj) => (include(obj.title) || include(obj.techs)) && data.push(obj));
     setResultados( data );
     setSugerencias([]);
 
@@ -73,17 +61,13 @@ export const Search = () => {
   {
     setResultados([resultado]);
     setSugerencias([]);
+
   }
 
   const mostrarSugerencias = () => 
   {
-        // Escapamos los caracteres especiales de la consulta y creamos una expresión regular
-        const escapedQuery = inputValues.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(escapedQuery, 'i');
-    
-        // Filtramos el conjunto de datos con la expresión regular
         const data = [];
-        cositas.map( (obj) => obj.title.toLowerCase().match(regex.source.toLowerCase()) && data.push(obj) )
+        proyectos.map( (obj) => (include(obj.title) || include(obj.techs)) && data.push(obj) )
         
         inputValues.search.length === 0 ? setSugerencias([]) : setSugerencias( data );
   };
@@ -93,6 +77,7 @@ export const Search = () => {
   useEffect(()=>
   {
     mostrarSugerencias();
+
   },[inputValues])
 
 
@@ -109,13 +94,13 @@ export const Search = () => {
         </div>
 
         <div className=" bg-gray-100/ w-10/12 bg-gray-100/90 shadow-lg rounded-b absolute top-12 text-black z-50">
-          <p>{sugerencias.map( s => ( <p className='my-1 cursor-pointer hover:bg-gray-300/50 box-border p-1 ' key={s.id} onClick={ mostrarResultado }>{s.title}</p> ))}</p>
+          <p>{sugerencias.map( s => ( <p className='my-1 cursor-pointer hover:bg-gray-300/50 box-border p-1 ' key={s.id} onClick={ ()=>{mostrarResultado(s)} }>{s.title}</p> ))}</p>
          </div>
     </form>
 
     {/* RESULTADOS */}
       <div>
-        {resultados.map( r => (<Post content={r} />))}
+        {resultados.map( r => <Post proyect={r} /> )}
       </div>
     </div>
 
