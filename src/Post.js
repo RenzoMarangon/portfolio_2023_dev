@@ -1,7 +1,6 @@
 import React from 'react'
-import Slider from './views/Splider'
 
-export const Post = ({ content }) => {
+export const Post = ({proyect}) => {
 
     const icons = {
       perfil : './iconos/perfil.png',
@@ -17,8 +16,6 @@ export const Post = ({ content }) => {
     }
 
    
-
-
   return (
     <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5">
         {/* <!--POST HEADER--> */}
@@ -38,13 +35,12 @@ export const Post = ({ content }) => {
         {/* <!--POST MAIN--> */}
         <div className="post__main p-2 sm:p-4 " >
 
-            <div key={'eeeeeeeeeeeee'} className='col-span-2 sm:col-span-1 sm:row-span-1 w-full  '>
-              {/* <img className='w-full h-full object-fill' src={`${process.env.PUBLIC_URL + image}`} alt="Slide" /> */}
-              <div className='w-full h-80 bg-pink-300/50 rounded-3xl'>
+            <div key={'eeeeeeeeeeeee'} className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
+              <button className='absolute bottom-2 right-10 z-50'>A veeeeer</button>
+              <img className='absolute z-1 top-0 w-full h-80 mx-auto object-fill rounded-3xl' src={`${proyect.img}`} alt={`${proyect.title}`} />
+            
 
-
-              </div>
             </div>
         </div>
         

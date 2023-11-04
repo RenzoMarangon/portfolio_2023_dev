@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import Skill from './Skill_brand';
 import { Post } from '../Post';
+
+import { proyectos } from '../helpers/proyects.json';
 export const Home = () => {
 
     const [icons, setIcons] = useState(
@@ -104,8 +106,7 @@ export const Home = () => {
             {/* <!--POSTSSSS--> */}
             <div className="main__posts ">
    
-              <Post />
-              <Post />
+              {proyectos.map( (p) =>  (<Post proyect={p} />) )}
             </div>
             
           </div>
@@ -128,7 +129,7 @@ export const Home = () => {
                   const alt = skill.split('_')[0];
                   const altMayus = alt.charAt(0).toUpperCase() + alt.slice(1);
 
-                  return <Skill key={skills[skill]} icon={skills[skill]} skillName={ altMayus }></Skill>
+                  return <Skill key={skills[skill]} icon={skills[skill]} skillName={ altMayus } />
                 })
               }
              
