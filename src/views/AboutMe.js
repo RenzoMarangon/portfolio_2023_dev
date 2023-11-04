@@ -44,7 +44,7 @@ export const AboutMe = () => {
             <div className='w-9/12 sm:w-5/12 mt-5 flex justify-around mb-5'>
                 <button className='w-8 '><img className=' hover:bg-gray-500 rounded-lg transicion agrandar' src={icons.github} alt="GitHub" /></button>
                 <button className='w-8 '><img className='hover:bg-blue-600 rounded-lg transicion agrandar' src={icons.linkedin} alt="LinkedIn" /></button>
-                <button className='w-8 '><img className='hover:bg-gray-500/50 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /></button>
+                <button className='w-8 '><img className='hover:bg-orange-500/75 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /></button>
             </div>
 
             <p className='w-9/12 sm:w-10/12'>

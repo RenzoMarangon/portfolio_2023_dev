@@ -26,10 +26,12 @@ export const icons = {
     gmail:'https://res.cloudinary.com/derznxjam/image/upload/v1698611027/portfolio/gmail_w_latkos.png',
     home:'https://res.cloudinary.com/derznxjam/image/upload/v1698611018/portfolio/home_w_n2bst2.png',
     search:'https://res.cloudinary.com/derznxjam/image/upload/v1698611010/portfolio/search_w_mqfjxw.png',
+    search_b:'https://res.cloudinary.com/derznxjam/image/upload/v1698611025/portfolio/search_cgoxp3.png',
     message:'https://res.cloudinary.com/derznxjam/image/upload/v1698611008/portfolio/message_w_hs5g2p.png',
     heart:'https://res.cloudinary.com/derznxjam/image/upload/v1698611007/portfolio/heart_w_rbkbew.png',
     dots_vertical:'https://res.cloudinary.com/derznxjam/image/upload/v1698611011/portfolio/dots-vertical_w_rcu4fl.png',
     edit:'https://res.cloudinary.com/derznxjam/image/upload/v1698611010/portfolio/edit_w_ru3afe.png',
+    linkedin:'https://res.cloudinary.com/derznxjam/image/upload/v1698610999/portfolio/linkedin_w_gywz5q.png',
 
 
 }

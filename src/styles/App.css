@@ -70,6 +70,15 @@
     height: 40px;
     width: 100vw;
   }
+
+  .main{
+    width: 101%;
+  }
+
+  .blurx{
+    backdrop-filter: blur(8px);
+  }
+
 }
 
 @media screen and (min-width:640px) {
@@ -121,3 +130,21 @@ textarea{
   margin-left: 2px;
 }
 
+.modalEstilo{
+  height: 50%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  backdrop-filter: blur(8px);
+  box-shadow: rgba(0, 0, 0, 0.329) 2px 2px 4px -1px ;
+  border-radius: 16px;
+}
+
+.modalEstilo #close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}

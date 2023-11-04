@@ -13,7 +13,7 @@ export const Contact = () => {
     const sendForm = (e) => 
     {
         e.preventDefault();
-
+        JSAlert.loader("Enviado email, por favor espere.").dismissIn(1000)
         emailjs.sendForm('gmail_derencito', 'template_vbihllh', form.current, '34-liJ64Zj9Byzmma')
         .then((result) => {
             JSAlert.alert("", "Email enviado con éxito.",JSAlert.Icons.Success,"Aceptar");
@@ -41,21 +41,14 @@ export const Contact = () => {
 
     <h2 className='text-xl font-bold text-center text-gray-100 my-5'>Contacto</h2>
 
-    <div className='w-5/6 mx-auto'>
-        <div>
-            <h4>Email</h4>
-            <p>renzomarangon@gmail.com</p>
+    <div className='w-3/6 mt-10 mx-auto p-2 backdrop-blur shadow-xl rounded-xl'>
+        <div className='flex justify-around items-center'>
+            <a href='mailto:renzomarangon@gmail.com' target='_blank'><img className='w-8 hover:bg-orange-500/75 rounded-lg transicion agrandar' src={`${icons.email}`} alt='Email' /></a>
+            <a href='https://github.com/RenzoMarangon' target='_blank'><img className='w-8 hover:bg-gray-500/75 rounded-lg transicion agrandar' src={`${icons.github}`} alt='GitHub' /></a>
+            <a href='https://www.linkedin.com/in/renzomarangon/' target='_blank'><img className='w-8 hover:bg-blue-500/75 rounded-lg transicion agrandar' src={`${icons.linkedin}`} alt='Email' /></a>
         </div>
 
-        <div>
-            <h4>LinkedIn</h4>
-            <p>linkedin</p>
-        </div>
-
-        <div>
-            <h4>Github</h4>
-            <p>github</p>
-        </div>
+       
     </div>
 
     <form ref={form} onSubmit={ sendForm } className='flex flex-col w-5/6 mx-auto mt-10 p-2 backdrop-blur shadow-xl rounded-xl'>
@@ -67,7 +60,7 @@ export const Contact = () => {
 
         <input className='self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm' type='submit' /> */}
 
-
+        <h3 className='font-bold'>Enviame un email</h3>
 
         <input className='text-black bg-gray-100/70 w-full my-2 py-4 px-2 rounded shadow-lg' name='user_name' type='text' placeholder='Nombre'  required />
 
@@ -77,7 +70,7 @@ export const Contact = () => {
 
         {
             send ?
-                    (<input className={`self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm`} disabled type='submit' />)
+                    (<button className={`self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm`} disabled >Enviado</button>)
                  :
                     (<input className={`self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm cursor-pointer`} type='submit' />)
         }               

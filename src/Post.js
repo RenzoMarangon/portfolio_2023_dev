@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Modal from 'react-modal';
+
 export const Post = ({proyect}) => {
 
     const icons = {
@@ -13,6 +15,19 @@ export const Post = ({proyect}) => {
       dots_vertical :'./iconos/dots-vertical_w.png',
       retuit :'./iconos/retuit_w.png',
 
+    }
+
+    
+
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+      setIsOpen(true);
+    }
+  
+   
+    function closeModal() {
+      setIsOpen(false);
     }
 
    
@@ -37,9 +52,7 @@ export const Post = ({proyect}) => {
 
             <div key={'eeeeeeeeeeeee'} className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
-              <button className='absolute bottom-2 right-10 z-50'>A veeeeer</button>
-              <img className='absolute z-1 top-0 w-full h-80 mx-auto object-fill rounded-3xl' src={`${proyect.img}`} alt={`${proyect.title}`} />
-            
+              <img onClick={()=>{openModal()}} className=' z-1 top-0 h-80 mx-auto  object-cover-center rounded-3xl' src={`${proyect.img}`} alt={`${proyect.title}`} />         
 
             </div>
         </div>
@@ -51,6 +64,27 @@ export const Post = ({proyect}) => {
           <button><img className='w-7 sm:w-5' src={`${process.env.PUBLIC_URL + icons.retuit}`} /></button>
           <button><img className='w-7 sm:w-5' src={`${process.env.PUBLIC_URL + icons.share}`} /></button>
         </div>
+
+        <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+        className={' h-full bg-gray-700/25 flex items-center justify-center'}
+      >
+        <div className='modalEstilo '>
+          <button id='close' className='rounded-full w-10 h-10 bg-red-500/75 text-white text-bold' onClick={closeModal}>X</button>
+          <img className='w-11/12 rounded-xl' src={`${proyect.img}`} alt={`${proyect.title}`}/>
+          <h2 className='text-lg text-bold'>{proyect.title}</h2>
+          <p>{proyect.description}</p>
+          <p>Tecnologías usadas: {proyect.techs}</p>
+          <div>
+            <a>Demo</a>
+            <a>Código</a>
+          </div>
+        </div>
+      </Modal>
+    
+      
     </div>
   )
 }

@@ -3,10 +3,10 @@ html{
     background-image: url('./backkkk.jpg');
     background-size: cover;
     background-position: center ;
-    background-repeat: no-repeat;
-    min-width: 100vw;
-    min-height: 100vh;
+    background-repeat: repeat;
+   
     color:white;
+    
   }
 
 @import '@splidejs/react-splide/css';
@@ -67,13 +67,13 @@ label span {
 
 
 
-.exp_educ ul{
+.educ{
   position:relative;
   width: 300px;
 
 }
 
-.exp_educ ul::before{
+.educ::before{
   border-left:2px #fc0e46 solid;
   width:2px;
   height:calc( 100% - 55px );
@@ -86,16 +86,13 @@ label span {
 
 }
 
-.exp_educ ul li{
+.educ li{
   padding-left: 10px;
-}
-
-.exp_educ li{
   position: relative;
   margin: 6px 0
 }
 
-.exp_educ li:before{
+.educ li:before{
   width: 7px;
   height:7px;
   border-radius: 15px;
@@ -106,6 +103,47 @@ label span {
   top: 8px;
   position: absolute;
 }
+
+
+
+.exp{
+  position:relative;
+  width: 300px;
+
+}
+
+.exp::before{
+  border-left:2px #fc0e46 solid;
+  width:2px;
+  height:calc( 100% - 76px );
+  content:'';
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index: -1;
+  
+
+}
+
+.exp li{
+  padding-left: 10px;
+  position: relative;
+  margin: 6px 0
+}
+
+.exp li:before{
+  width: 7px;
+  height:7px;
+  border-radius: 15px;
+  content:'';
+  background-color: #F0446B;
+  box-shadow: black 1px 1px;
+  left: -3px;
+  top: 8px;
+  position: absolute;
+}
+
+
 
 .text-pink{
   color: #F0446B;

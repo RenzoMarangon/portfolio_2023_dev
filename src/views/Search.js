@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Post } from '../Post';
 import { proyectos } from '../helpers/proyects.json';
+import { icons } from '../helpers/icons.json';
 
 
 
@@ -12,6 +13,9 @@ export const Search = () => {
   const [ sugerencias, setSugerencias ] = useState([]);
 
   const [ resultados, setResultados ] = useState([]);
+
+
+  
 
 
   const [ inputValues, setInputValues ]= useState({
@@ -46,7 +50,7 @@ export const Search = () => {
 
     if(inputValues.search === '' )
     {
-      console.log('nadaaa');
+      setResultados( proyectos )
     }
 
     const data = [];
@@ -63,6 +67,8 @@ export const Search = () => {
     setSugerencias([]);
 
   }
+
+  
 
   const mostrarSugerencias = () => 
   {
@@ -83,19 +89,19 @@ export const Search = () => {
 
   return (
     <div className='search w-full h-full sm:h-5/6 sm:w-5/6 xl:w-2/3 sm:rounded-2xl overflow-y-auto'>
-
-
  
-    <form after="formx" onSubmit={ sendForm } className='flex flex-col justify-between w-11/12 mx-auto relative'>
+    <form after="formx" onSubmit={ sendForm } className='flex flex-col justify-between w-full items-center mx-auto relative'>
         
-        <div className='flex  justify-between'>
-          <input className={`text-black bg-gray-100/70  my-4 py-4 px-2  shadow-lg w-10/12 ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' }`} name='search' type='text' placeholder='Buscar' onChange={ escribirInput } value={ inputValues.search } required />
-          <button className='self-end justify-self-end box-content mb-4 px-2 sm:px-4 py-1.5 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm '>Buscar</button>
+        <div className={`flex bg-gray-100/70 justify-between mt-4 p-0 shadow-lg w-10/12 relative ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' } `} >
+          <input className={`text-black  w-full bg-transparent py-4 px-2  ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' }`} name='search' type='text' placeholder='Buscar' onChange={ escribirInput } value={ inputValues.search } autoComplete="off" />
+          <button className='absolute right-2 bottom-0 '><img className='w-8 drop-shadow' src={`${icons.search}`} /></button>
         </div>
 
-        <div className=" bg-gray-100/ w-10/12 bg-gray-100/90 shadow-lg rounded-b absolute top-12 text-black z-50">
-          <p>{sugerencias.map( s => ( <p className='my-1 cursor-pointer hover:bg-gray-300/50 box-border p-1 ' key={s.id} onClick={ ()=>{mostrarResultado(s)} }>{s.title}</p> ))}</p>
-         </div>
+        {sugerencias.length > 0 &&
+          <div className=" bg-gray-100/ w-10/12 bg-gray-100/90 shadow-lg rounded-b absolute top-12 text-black z-50">
+            <p>{sugerencias.map( s => ( <p className='my-1 cursor-pointer hover:bg-gray-300/50 box-border p-1 ' key={s.id} onClick={ ()=>{mostrarResultado(s)} }>{s.title}</p> ))}</p>
+          </div>
+        }
     </form>
 
     {/* RESULTADOS */}

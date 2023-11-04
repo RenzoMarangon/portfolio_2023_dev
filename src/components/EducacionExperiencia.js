@@ -16,13 +16,13 @@ export const EducacionExperiencia = ({ educExp, setEducExp }) => {
     }
 
     return(
-        <div className='exp_educ backdrop-blur rounded-xl shadow-lg p-2 self-start '>
+        <div className='backdrop-blur rounded-xl shadow-lg p-2 self-start '>
             <button onClick={()=>{cambiarEducExp('educacion') }} className={`m-2 px-2 py-1 rounded-full ${ educExp.educacion && 'bg-gray-100/25' }`}>Educación</button>
             <button onClick={()=>{cambiarEducExp('experiencia')}} className={`m-2 px-2 py-1 rounded-full ${ educExp.experiencia && 'bg-gray-100/25' }`}>Experiencia</button>
 
             {
                 educExp.educacion &&
-                (<ul className='border border-transparent '>
+                (<ul className=' educ border border-transparent '>
                     <li className=''>
                         <p className='text-pink'>2023 - 2025</p>
                         <p className='font-bold text-wh'>UTN - Universidad Tecnológica Nacional</p>
@@ -53,19 +53,32 @@ export const EducacionExperiencia = ({ educExp, setEducExp }) => {
 
             {
                 educExp.experiencia &&
-                (<ul className='border border-transparent '>
+                (<ul className='exp border border-transparent '>
                     <li className=''>
-                        <p className='text-pink'>2023 - 2025</p>
-                        <p className='font-bold text-wh'>Google</p>
-                        <p >El mas piola de la oficina</p>
+                        <p className='text-pink'>2023</p>
+                        <p className='font-bold text-wh'>Colegio Carlos Maschwitz</p>
+                        <p >Profesor en Desarrollo Web</p>
                     </li>
 
                     <li className=''>
-                        <p className='text-pink'>2023 - 2025</p>
-                        <p className='font-bold text-wh'>Google</p>
-                        <p >El mas piola de la oficina</p>
+                        <p className='text-pink'>2023</p>
+                        <p className='font-bold text-wh'>E.E.S. N° 21</p>
+                        <p >Encargado de medios de apoyo tecnológicos y pedagógicos</p>
                     </li>
 
+                    <li className=''>
+                        <p className='text-pink'>2022 - 2023</p>
+                        <p className='font-bold text-wh'>E.E.S. N° 28</p>
+                        <p >Encargado de medios de apoyo tecnológicos y pedagógicos</p>
+                    </li>
+
+                    <li className=''>
+                        <p className='text-pink'>2021 - 2022</p>
+                        <p className='font-bold text-wh'>E.E.S. N° 48</p>
+                        <p >Encargado de medios de apoyo tecnológicos y pedagógicos</p>
+                    </li>
+
+             
              
                 </ul>)
             }
