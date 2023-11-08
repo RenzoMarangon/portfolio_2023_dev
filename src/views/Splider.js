@@ -21,7 +21,7 @@ const Slider = ({ images }) => {
         {
             return(
                 <SplideSlide className='rounded shadow '>
-                    <img className='contain' src={`${process.env.PUBLIC_URL + image}`} alt="Slide" />
+                    <img className='contain' src={`${image}`} alt="Slide" />
                 </SplideSlide>
             )
         })

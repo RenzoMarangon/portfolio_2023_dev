@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { EducacionExperiencia } from '../components/EducacionExperiencia'
+import { icons } from '../helpers/icons.json';
+
 
 export const AboutMe = () => {
 
@@ -13,12 +15,6 @@ export const AboutMe = () => {
         document.body.removeChild(link);
       };
 
-    const icons = {
-        perfil : process.env.PUBLIC_URL + './iconos/perfil.png',
-        linkedin : process.env.PUBLIC_URL + './iconos/linkedin_w.png',
-        github : process.env.PUBLIC_URL + './iconos/github_w.png',
-        email : process.env.PUBLIC_URL + './iconos/mail_w.png',
-    }
 
     const [ educExp, setEducExp ] = useState({
         educacion: true,
@@ -42,9 +38,9 @@ export const AboutMe = () => {
 
                 
             <div className='w-9/12 sm:w-5/12 mt-5 flex justify-around mb-5'>
-                <button className='w-8 '><img className=' hover:bg-gray-500 rounded-lg transicion agrandar' src={icons.github} alt="GitHub" /></button>
-                <button className='w-8 '><img className='hover:bg-blue-600 rounded-lg transicion agrandar' src={icons.linkedin} alt="LinkedIn" /></button>
-                <button className='w-8 '><img className='hover:bg-orange-500/75 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /></button>
+                <a href='https://github.com/RenzoMarangon' target='_blank' > <img className='w-8 hover:bg-gray-500 rounded-lg transicion agrandar' src={icons.github} alt="GitHub" /> </a>
+                <a href='https://www.linkedin.com/in/renzomarangon/' target='_blank'  > <img className='w-8  hover:bg-blue-600 rounded-lg transicion agrandar' src={icons.linkedin} alt="LinkedIn" /> </a>
+                <a href='mailto:renzomarangon@gmail.com' target='_blank'> <img className='w-8  hover:bg-orange-500/75 rounded-lg transicion agrandar' src={icons.email} alt="Correo Electrónico" /> </a>
             </div>
 
             <p className='w-9/12 sm:w-10/12'>

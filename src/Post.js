@@ -1,21 +1,12 @@
 import React from 'react'
 
 import Modal from 'react-modal';
+import { icons } from './helpers/icons.json';
+
+
 
 export const Post = ({proyect}) => {
 
-    const icons = {
-      perfil : './iconos/perfil.png',
-      user: './iconos/user_w.png',
-      heart:'./iconos/heart_w.png',
-      message:'./iconos/message_w.png',
-      edit:'./iconos/pen_w.png',
-      share:'./iconos/share_w.png',
-      message:'./iconos/message_w.png',
-      dots_vertical :'./iconos/dots-vertical_w.png',
-      retuit :'./iconos/retuit_w.png',
-
-    }
 
     
 
@@ -42,7 +33,7 @@ export const Post = ({proyect}) => {
             </div>       
             <div className="post__header-time flex items-center  justify-self-end sm:mr-2">
                 <p>6 min.</p>
-                <button className='w-4 sm:w-3 opacity-75 ml-2'> <img className='' src={ `${process.env.PUBLIC_URL + icons.dots_vertical }` } /> </button>
+                <button className='w-4 sm:w-3 opacity-75 ml-2'> <img className='' src={ `${icons.dots_vertical }` } /> </button>
                 
             </div>
         </div>
@@ -52,17 +43,17 @@ export const Post = ({proyect}) => {
 
             <div key={'eeeeeeeeeeeee'} className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
-              <img onClick={()=>{openModal()}} className=' z-1 top-0 h-80 mx-auto  object-cover-center rounded-3xl' src={`${proyect.img}`} alt={`${proyect.title}`} />         
+              <img onClick={()=>{openModal()}} className=' z-1 top-0 w-9/12 h-80 mx-auto  object-cover-center rounded-3xl' src={`${proyect.img}`} alt={`${proyect.title}`} />         
 
             </div>
         </div>
         
         {/* <!--POST FOOTER--> */}
         <div className=" post__footer ml-5 flex items-center justify-around w-3/6 sm:w-3/12 ">
-          <button><img className='w-7 sm:w-5' src={`${process.env.PUBLIC_URL + icons.heart}`} /></button>
-          <button><img className='w-7 sm:w-5' src={`${process.env.PUBLIC_URL + icons.message}`} /></button>
-          <button><img className='w-7 sm:w-5' src={`${process.env.PUBLIC_URL + icons.retuit}`} /></button>
-          <button><img className='w-7 sm:w-5' src={`${process.env.PUBLIC_URL + icons.share}`} /></button>
+          <button><img className='w-7 sm:w-5' src={`${icons.heart}`} /></button>
+          <button><img className='w-7 sm:w-5' src={`${icons.message}`} /></button>
+          <button><img className='w-7 sm:w-5' src={`${icons.retuit}`} /></button>
+          <button><img className='w-7 sm:w-5' src={`${icons.share}`} /></button>
         </div>
 
         <Modal

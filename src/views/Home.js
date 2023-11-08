@@ -2,55 +2,28 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import Skill from './Skill_brand';
 import { Post } from '../Post';
+import { icons } from '../helpers/icons.json';
 
 import { proyectos } from '../helpers/proyects.json';
 export const Home = () => {
 
-    const [icons, setIcons] = useState(
-        {
-          react_logo : './iconos/react_w.png',
-          javascript : './iconos/javascript_w.png',
-          nextjs : './iconos/nextjs_w.png',
-          node : './iconos/nodejs_w.png',
-          cpp : './iconos/cpp_w.png',
-          mongodb : './iconos/mongodb_w.png',
-          npm : './iconos/npm_w.png',
-          tailwind : './iconos/tailwind_w.png',
-          sass : './iconos/sass_w.png',
-          socket_io : './iconos/socket-io_w.png',
-          git : './iconos/git_w.png',
-          css3 : './iconos/css3_w.png',
-          bootstrap : './iconos/bootstrap_w.png',
-          firebase : './iconos/firebase_w.png',
-          perfil : './iconos/perfil.jpg',
-          amongus : './iconos/among-us_w.png',
-          retuit : './iconos/retuit_w.png',
-          user : './iconos/user.png',
-          image: './iconos/photo_w.png',
-          gif: './iconos/gif_w.png',
-          emoji: './iconos/emoji_w.png',
-          pin: './iconos/map-pin_w.png',
-    
-        });
-    
-    
-        const [skills, setSkills] = useState(
-        {
-          react_logo : './iconos/react_w.png',
-          javascript : './iconos/javascript_w.png',
-          nextjs : './iconos/nextjs_w.png',
-          node : './iconos/nodejs_w.png',
-          cpp : './iconos/cpp_w.png',
-          mongodb : './iconos/mongodb_w.png',
-          git : './iconos/git_w.png',
-          firebase : './iconos/firebase_w.png',
-          tailwind : './iconos/tailwind_w.png',
-          npm : './iconos/npm_w.png',
-          sass : './iconos/sass_w.png',
-          socket_io : './iconos/socket-io_w.png',
-          css3 : './iconos/css3_w.png',
-          bootstrap : './iconos/bootstrap_w.png',
-        });
+     const skills = 
+     {
+      react_logo : icons.react_logo,
+      javascript : icons.javascript,
+      nextjs : icons.nextjs,
+      node : icons.node,
+      cpp : icons.cpp,
+      mongodb : icons.mongodb,
+      git : icons.git,
+      firebase : icons.firebase,
+      tailwind : icons.tailwind,
+      npm : icons.npm,
+      sass : icons.sass,
+      socket_io : icons.socket_io,
+      css3 : icons.css3,
+      bootstrap : icons.bootstrap,
+     }
     
 
   return (
