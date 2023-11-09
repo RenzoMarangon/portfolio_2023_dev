@@ -32,6 +32,6 @@ export const proyectos = [
     techs: 'JavaScript SASS CSS HTML',
     description: 'Sitio web sobre juegos de temática cripto para ganar dinero',
     site:'https://cryptojuegos.netlify.app/',
-    img:'https://res.cloudinary.com/derznxjam/image/upload/v1699486018/portfolio/cryptojuegos_knvvv3.jpg'
+    img:'https://res.cloudinary.com/derznxjam/image/upload/v1699489254/portfolio/cryptojuegos_pymwwl.jpg'
   },
 ];
