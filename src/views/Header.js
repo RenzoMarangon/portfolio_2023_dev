@@ -1,21 +1,9 @@
-import { useState } from "react";
 
+import { icons } from "../helpers/icons.json";
 
 export const Header = ({vistas, setVistas}) =>
 {
 
-
-  const [icons, setIcons] = useState(
-  {
-    user : './iconos/user_w.png',
-    house :'./iconos/house_w.png',
-    heart :'./iconos/heart_w.png',
-    search :'./iconos/search_w.png',
-    edit :'./iconos/edit_w.png',
-    message :'./iconos/message_w.png',
-    email :'./iconos/mail_w.png',
-  
-  });
 
 
   const cambiarVista = ( vistaSeleccionada ) =>
@@ -40,7 +28,7 @@ export const Header = ({vistas, setVistas}) =>
         <header className="header shadow  w-screen h-100 absolute  sm:relative  sm:h-2/5 sm:w-12  sm:my-auto box-content  sm:rounded-full    flex justify-evenly sm:justify-around items-center sm:flex-col flex-row   ">
           
           
-            <button onClick={()=>cambiarVista('home')} > <img className={`w-8 sm:w-6  hover:ring-4 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-1 sm:m-0 ${ vistas.home && 'ring-4 bg-slate-100/50' }`} src={ `${icons.house }` } /> </button>
+            <button onClick={()=>cambiarVista('home')} > <img className={`w-8 sm:w-6  hover:ring-4 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-1 sm:m-0 ${ vistas.home && 'ring-4 bg-slate-100/50' }`} src={ `${icons.home }` } /> </button>
             {/* <button onClick={()=>cambiarVista('likes')} > <img className={`w-8 sm:w-6  hover:ring-4 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-1 sm:m-0 ${ vistas.likes && 'ring-4 bg-slate-100/50' }`} src={ `${icons.edit }` } /> </button> */}
             <button onClick={()=>cambiarVista('search')} > <img className={`w-8 sm:w-6  hover:ring-4 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-1 sm:m-0 ${ vistas.search && 'ring-4 bg-slate-100/50' }`} src={ `${icons.search }` } /> </button>
             <button onClick={()=>cambiarVista('contact')} > <img className={`w-8 sm:w-6  hover:ring-4 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-1 sm:m-0 ${ vistas.contact && 'ring-4 bg-slate-100/50'}`} src={ `${icons.email }` } /> </button>
