@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import './styles/App.css';
+import { useState } from 'react';
+import { Toaster, toast } from 'alert';
 
+import './styles/App.css';
 import { Home } from './views/Home';
-import { useEffect, useState } from 'react';
 
 import { Header } from './views/Header';
 import { AboutMe } from './views/AboutMe';
@@ -14,7 +14,10 @@ import { Search } from './views/Search';
 
 
 
+
 function App() {
+
+
 
 // console.log(icons.javascript.split('/',3)[2].split('.',2)[0]);
 const [vistas, setVistas ] = useState(
@@ -26,7 +29,7 @@ const [vistas, setVistas ] = useState(
     search:false,
   }) 
 
-
+  
 
 
   return (
@@ -43,6 +46,7 @@ const [vistas, setVistas ] = useState(
         {vistas.likes && <Likes /> }
         {vistas.search && <Search /> }
 
+        <Toaster/>
       
       </main>
 

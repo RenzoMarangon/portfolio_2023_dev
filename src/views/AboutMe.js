@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import { EducacionExperiencia } from '../components/EducacionExperiencia'
 import { icons } from '../helpers/icons.json';
 
@@ -6,6 +7,7 @@ import { icons } from '../helpers/icons.json';
 export const AboutMe = () => {
 
 
+   
     const downloadFile = () => {
         const link = document.createElement('a');
         link.href = './cv_renzo_marangon.pdf'; 

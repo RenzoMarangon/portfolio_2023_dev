@@ -1,30 +1,45 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
+import React, { useContext, useState }  from 'react'
+
+
 import Skill from './Skill_brand';
 import { Post } from '../Post';
 import { icons } from '../helpers/icons.json';
 
 import { proyectos } from '../helpers/proyects.json';
+import { obtenerFollows } from '../helpers/functions';
+import { useStorex } from '../helpers/store';
+
+
+
 export const Home = () => {
 
-     const skills = 
-     {
-      react_logo : icons.react_logo,
-      javascript : icons.javascript,
-      nextjs : icons.nextjs,
-      node : icons.node,
-      cpp : icons.cpp,
-      mongodb : icons.mongodb,
-      git : icons.git,
-      firebase : icons.firebase,
-      tailwind : icons.tailwind,
-      npm : icons.npm,
-      sass : icons.sass,
-      socket_io : icons.socket_io,
-      css3 : icons.css3,
-      bootstrap : icons.bootstrap,
-     }
+
+
+  const skills = 
+  {
+    react_logo : icons.react_logo,
+    javascript : icons.javascript,
+    nextjs : icons.nextjs,
+    node : icons.node,
+    cpp : icons.cpp,
+    mongodb : icons.mongodb,
+    git : icons.git,
+    firebase : icons.firebase,
+    tailwind : icons.tailwind,
+    npm : icons.npm,
+    sass : icons.sass,
+    socket_io : icons.socket_io,
+    css3 : icons.css3,
+    bootstrap : icons.bootstrap,
+  }
+
+
+
+  const [follows, setFollows ] = useState( useStorex().follows );
     
+  const cambiarFollows = ( newFollows ) => { setFollows(newFollows) };
+
+  
 
   return (
     <>
@@ -96,17 +111,16 @@ export const Home = () => {
             
               {/* <!--SIDE CONTAINER SKILLS--> */}
               <div className={` relative side__container-skills flex flex-col text-xs h-100 sm:h-full items-left pt-2 overflow-y-auto`}>
+
                 {Object.keys( skills ).map( (skill) => {
                   
+                  return <Skill icon={skills[skill]} skill={ skill } follows={ follows }  cambiarFollows={ cambiarFollows } key={skills[skill]} />
 
-                  const alt = skill.split('_')[0];
-                  const altMayus = alt.charAt(0).toUpperCase() + alt.slice(1);
-
-                  return <Skill key={skills[skill]} icon={skills[skill]} skillName={ altMayus } />
                 })
+
               }
              
-               
+             
 
               </div>
 
