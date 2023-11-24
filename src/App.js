@@ -29,6 +29,8 @@ const [vistas, setVistas ] = useState(
     search:false,
   }) 
 
+  const positionToaster = `${window.innerWidth <= 638 ? 'top-center' : 'bottom-right'}`;
+
   
 
 
@@ -46,7 +48,7 @@ const [vistas, setVistas ] = useState(
         {vistas.likes && <Likes /> }
         {vistas.search && <Search /> }
 
-        <Toaster/>
+        <Toaster position={`${positionToaster}`}/>
       
       </main>
 
