@@ -6,8 +6,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export const Modalx = ({open, handleClose}) => {
+export const Modalx = ({open, handleClose, proyect}) => {
 
+
+  const { title,
+    techs,
+    description,
+    site,
+    img, } = proyect;
 
   return (
     <React.Fragment>
@@ -19,18 +25,24 @@ export const Modalx = ({open, handleClose}) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          {title}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+            <img src={img} alt={title} />
+            <br></br>
+            {description}
+            <br></br>
+            <br></br>
+            <p>Tecnologías utilizadas: <b>{techs}</b></p>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
+          
+          <Button onClick={handleClose}>Cerrar</Button>
+
           <Button onClick={handleClose} autoFocus>
-            Agree
+          <a href={site} target='_blank' >Ver demo</a>
           </Button>
         </DialogActions>
       </Dialog>

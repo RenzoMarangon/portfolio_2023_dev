@@ -47,7 +47,7 @@ export const AboutMe = () => {
 
             <p className='w-9/12 sm:w-10/12'>
                 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, molestias. Temporibus minus error quo labore ab iure, laborum libero est magni eum officia voluptatem facere architecto eveniet voluptatum alias reprehenderit!
+            Actualmente, soy profesor de Informática y estoy cursando una tecnicatura universitaria en Sistemas en la UTN. Además, he completado diversos cursos de programación, abarcando temas como node, react y testing QA manual.
             
             </p>
 

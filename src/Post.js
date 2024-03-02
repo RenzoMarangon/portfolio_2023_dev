@@ -44,7 +44,7 @@ export const Post = ({proyect}) => {
 
             </div>
 
-        <Modalx  handleClose={ handleClose } open={ open } />
+        <Modalx  handleClose={ handleClose } open={ open } proyect = { proyect } />
 
         </div>
         
