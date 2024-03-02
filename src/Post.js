@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Modal from 'react-modal';
+import {Modalx} from './components/Modalx';
 import { icons } from './helpers/icons.json';
 
 
@@ -56,25 +56,7 @@ export const Post = ({proyect}) => {
           <button><img className='w-7 sm:w-5' src={`${icons.share}`} /></button>
         </div>
 
-        <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Example Modal"
-        className={' h-full bg-gray-700/25 flex items-center justify-center'}
-      >
-        <div className='modalEstilo '>
-          <button id='close' className='rounded-full w-10 h-10 bg-red-500/75 text-white text-bold' onClick={closeModal}>X</button>
-          <img className='w-11/12 rounded-xl' src={`${proyect.img}`} alt={`${proyect.title}`}/>
-          <h2 className='text-lg text-bold'>{proyect.title}</h2>
-          <p>{proyect.description}</p>
-          <p>Tecnologías usadas: {proyect.techs}</p>
-          <div>
-            <a>Demo</a>
-            <a>Código</a>
-          </div>
-        </div>
-      </Modal>
-    
+        <Modalx />
       
     </div>
   )
