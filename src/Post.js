@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {Modalx} from './components/Modalx';
 import { icons } from './helpers/icons.json';
@@ -7,20 +7,17 @@ import { icons } from './helpers/icons.json';
 
 export const Post = ({proyect}) => {
 
+  const [visible, setVisible] = useState(false)
 
-    
+  const [open, setOpen] = useState(false);
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-    function openModal() {
-      setIsOpen(true);
-    }
-  
-   
-    function closeModal() {
-      setIsOpen(false);
-    }
-
+  const handleClose = () => {
+    setOpen(false);
+  };
    
   return (
     <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5">
@@ -43,9 +40,12 @@ export const Post = ({proyect}) => {
 
             <div key={'eeeeeeeeeeeee'} className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
-              <img onClick={()=>{openModal()}} className=' z-1 top-0 w-9/12 h-80 mx-auto  object-cover-center rounded-3xl' src={`${proyect.img}`} alt={`${proyect.title}`} />         
+              <img onClick={()=>{handleClickOpen(true)}} className=' z-1 top-0 w-9/12 h-80 mx-auto  object-cover-center rounded-3xl cursor-pointer' src={`${proyect.img}`} alt={`${proyect.title}`} />         
 
             </div>
+
+        <Modalx  handleClose={ handleClose } open={ open } />
+
         </div>
         
         {/* <!--POST FOOTER--> */}
@@ -56,7 +56,6 @@ export const Post = ({proyect}) => {
           <button><img className='w-7 sm:w-5' src={`${icons.share}`} /></button>
         </div>
 
-        <Modalx />
       
     </div>
   )
