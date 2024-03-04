@@ -47,9 +47,12 @@ export const AboutMe = () => {
 
             <p className='w-9/12 sm:w-10/12'>
                 
-            Actualmente, soy profesor de Informática y estoy cursando una tecnicatura universitaria en Sistemas en la UTN. Además, he completado diversos cursos de programación, abarcando temas como node, react y testing QA manual.
+            Profesor de Informática, cursando una tecnicatura universitaria en Sistemas en la UTN. Además, he completado diversos cursos de programación, abarcando temas como node, react y testing QA manual.
             
             </p>
+
+            <button className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' onClick={()=>{downloadFile()}}> Descargar cv</button>
+
 
         </div>
 
@@ -80,7 +83,6 @@ export const AboutMe = () => {
             
             <EducacionExperiencia educExp={ educExp } setEducExp = { setEducExp } />
 
-            <button className='self-start my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' onClick={()=>{downloadFile()}}> Descargar cv</button>
 
 
             {/*Espacio para el nav en mobile */}

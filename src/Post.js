@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
-
+import * as React from 'react';
+import { useState } from 'react';
+import { Button, Popover, Typography } from '@mui/material';
 import {Modalx} from './components/Modalx';
 import { icons } from './helpers/icons.json';
 
 
 
+
 export const Post = ({proyect}) => {
 
-  const [visible, setVisible] = useState(false)
 
   const [open, setOpen] = useState(false);
 
@@ -18,6 +19,11 @@ export const Post = ({proyect}) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  
+
+
+ 
    
   return (
     <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5">
@@ -30,7 +36,8 @@ export const Post = ({proyect}) => {
             </div>       
             <div className="post__header-time flex items-center  justify-self-end sm:mr-2">
                 <p>6 min.</p>
-                <button className='w-4 sm:w-3 opacity-75 ml-2'> <img className='' src={ `${icons.dots_vertical }` } /> </button>
+
+                <button className='w-4 sm:w-3 opacity-75 ml-2'> <img className=''  src={ `${icons.dots_vertical }` } /> </button>
                 
             </div>
         </div>
@@ -40,9 +47,10 @@ export const Post = ({proyect}) => {
 
             <div key={'eeeeeeeeeeeee'} className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
-              <img onClick={()=>{handleClickOpen(true)}} className=' z-1 top-0 w-9/12 h-80 mx-auto  object-cover-center rounded-3xl cursor-pointer' src={`${proyect.img}`} alt={`${proyect.title}`} />         
+              <img onClick={()=>{handleClickOpen(true)}} className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl cursor-pointer' src={`${proyect.img}`} alt={`${proyect.title}`} />         
 
             </div>
+
 
         <Modalx  handleClose={ handleClose } open={ open } proyect = { proyect } />
 

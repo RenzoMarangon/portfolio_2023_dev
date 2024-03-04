@@ -45,16 +45,16 @@ export const Home = () => {
     <>
         
         {/* <!--MAIN--> */}
-        <div className="main  overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
+        <div className="main shadow-inner shadow-xl overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
           
 
           <div className="main__container h-100 sm:col-span-3 container p-2 pt-4 sm:overflow-auto">
-            
+        
             <div className="main__header flex flex-col ">
               
               <div className='grid  grid-cols-10 mb-4 '>
                 <img src={`${icons.user}`} alt="Invitado" className="col-span-1 w-10 p-1 mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center" />
-                <input type="text" placeholder="¿En qué piensas?" className="col-span-9  search col-span-3 px-3 py-5 mt-1 outline-none text-black shadow bg-gray-100/50 rounded w-full" />
+                <input type="text" placeholder="¿En qué piensas?" className="col-span-9 placeholder-white search col-span-3 px-3 py-5 mt-1 outline-none text-white shadow bg-gray-100/50 rounded w-full" />
               </div>
 
 
@@ -80,7 +80,7 @@ export const Home = () => {
                   </button>
                   </div>
 
-                  <button className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Post </button>
+                  <button className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Publicar </button>
 
                 </div>
 
