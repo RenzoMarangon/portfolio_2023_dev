@@ -9,6 +9,7 @@ import { AboutMe } from './views/AboutMe';
 import { Contact } from './views/Contact';
 import { Likes } from './views/Likes';
 import { Search } from './views/Search';
+import { Message } from './views/Message';
 
 
 
@@ -27,6 +28,7 @@ const [vistas, setVistas ] = useState(
     contact:false,
     likes:false,
     search:false,
+    message:false,
   }) 
 
   const positionToaster = `${window.innerWidth <= 638 ? 'top-center' : 'bottom-right'}`;
@@ -35,7 +37,6 @@ const [vistas, setVistas ] = useState(
 
 
   return (
-    <body className=''>
       <main className="w-full h-screen shadow sm:h-50 flex    sm:justify-center items-center  sm:flex-row gap-x-5 text-sm ">
         
         {/* <button onClick={()=>cambiarVista('home')}> Moxtrar </button> */}
@@ -47,12 +48,11 @@ const [vistas, setVistas ] = useState(
         {vistas.contact && <Contact /> }
         {vistas.likes && <Likes /> }
         {vistas.search && <Search /> }
+        {vistas.message && <Message/> }
 
         <Toaster position={`${positionToaster}`}/>
       
       </main>
-
-    </body>
   );
 }
 

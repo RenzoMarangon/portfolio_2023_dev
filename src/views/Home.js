@@ -1,8 +1,8 @@
 import React, { useContext, useState }  from 'react'
 
-
-import Skill from './Skill_brand';
-import { Post } from '../Post';
+import { TooltipButton } from '../components/TooltipButton';
+import Skill from '../components/Skill_brand';
+import { Post } from '../components/Post';
 import { icons } from '../helpers/icons.json';
 
 import { proyectos } from '../helpers/proyects.json';
@@ -66,19 +66,15 @@ export const Home = () => {
 
                   <div className='w-40 flex justify-between'>
 
-                  <button>
-                    <img src={`${icons.image}`} alt="Upload image" className="w-7 sm:w-6 rounded-full " />
-                  </button>
-                  <button>
-                    <img src={`${icons.gif}`} alt="Gif" className="w-6 sm:w-5  rounded border-2 " />
-                  </button>
-                  <button>
-                    <img src={`${icons.emoji}`} alt="Invitado" className="w-7 sm:w-6 rounded-full " />
-                  </button>
-                  <button>
-                    <img src={`${icons.pin}`} alt="Invitado" className="w-7 sm:w-6 rounded-full " />
-                  </button>
+                    
+                  <TooltipButton icon={ icons.image } alt={ "Upload image"} title={"Añadir imagen"} placement={"bottom"} ></TooltipButton>
+
+                  <TooltipButton icon={ icons.emoji } alt={ "Invitado"} title={"Emoticones"} placement={"bottom"} ></TooltipButton>
+
+                  <TooltipButton icon={ icons.pin } alt={ "Añadir ubicacion"} title={"Añadir ubicación"} placement={"bottom"} ></TooltipButton>
+
                   </div>
+    
 
                   <button className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Publicar </button>
 
@@ -93,8 +89,9 @@ export const Home = () => {
             
             {/* <!--POSTSSSS--> */}
             <div className="main__posts ">
-   
-              {proyectos.map( (p) =>  (<Post proyect={p} />) )}
+              
+              {proyectos.map( (p) =>  (<Post proyect={p} key={p.site} />  ))}
+              
             </div>
             
           </div>

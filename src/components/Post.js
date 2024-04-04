@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Button, Popover, Typography } from '@mui/material';
-import {Modalx} from './components/Modalx';
-import { icons } from './helpers/icons.json';
+import { Tooltip } from '@mui/material';
+
+
+import {Modalx} from './Modalx';
+import { icons } from '../helpers/icons.json';
 
 
 
@@ -20,10 +22,6 @@ export const Post = ({proyect}) => {
     setOpen(false);
   };
 
-  
-
-
- 
    
   return (
     <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5">
@@ -45,7 +43,9 @@ export const Post = ({proyect}) => {
         {/* <!--POST MAIN--> */}
         <div className="post__main p-2 sm:p-4 " >
 
-            <div key={'eeeeeeeeeeeee'} className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
+            <div  className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
+
+              
 
               <img onClick={()=>{handleClickOpen(true)}} className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl cursor-pointer' src={`${proyect.img}`} alt={`${proyect.title}`} />         
 
@@ -58,10 +58,22 @@ export const Post = ({proyect}) => {
         
         {/* <!--POST FOOTER--> */}
         <div className=" post__footer ml-5 flex items-center justify-around w-3/6 sm:w-3/12 ">
-          <button><img className='w-7 sm:w-5' src={`${icons.heart}`} /></button>
-          <button><img className='w-7 sm:w-5' src={`${icons.message}`} /></button>
-          <button><img className='w-7 sm:w-5' src={`${icons.retuit}`} /></button>
-          <button><img className='w-7 sm:w-5' src={`${icons.share}`} /></button>
+
+        <Tooltip title="Me gusta" placeholder='bottom' >
+          <button><img className='w-7 sm:w-5' src={`${icons.heart}`} alt='Me gusta' /></button>
+        </Tooltip>
+
+        <Tooltip title="Comentar" placeholder='bottom' >
+          <button><img className='w-7 sm:w-5' src={`${icons.message}`} alt='Comentar' /></button>
+        </Tooltip>
+
+        <Tooltip title="Compartir" placeholder='bottom' >
+          <button><img className='w-7 sm:w-5' src={`${icons.share}`} alt='Compartir' /></button>
+        </Tooltip>
+
+
+
+
         </div>
 
       

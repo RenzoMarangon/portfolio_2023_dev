@@ -28,7 +28,7 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
 
   const { guardarStore } = useStorex();
 
-  const chngTxt = (txt) => 
+  const changeText = (txt) => 
   {
     setBtnText( txt )
   }
@@ -41,7 +41,7 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
       follows[key] = !follows[key];
       
       // Actualizar el texto del botón en función del nuevo estado
-      follows[key] ? chngTxt('Siguiendo') : chngTxt('Seguir');
+      follows[key] ? changeText('Siguiendo') : changeText('Seguir');
   
     
       cambiarFollows(follows);
@@ -67,8 +67,6 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
             btnText
           }
           </button>
-        
-
       </div>
 
 

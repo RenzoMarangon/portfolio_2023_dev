@@ -72,7 +72,7 @@ export const Contact = () => {
             send ?
                     (<button className={`self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm`} disabled >Enviado</button>)
                  :
-                    (<input className={`self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm cursor-pointer`} type='submit' />)
+                    (<input className={`self-end justify-self-end box-content my-2 px-2 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm cursor-pointer`} type='submit' value={'Enviar'} />)
         }               
         </form>
 
