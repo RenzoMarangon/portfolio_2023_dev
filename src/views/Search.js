@@ -76,6 +76,8 @@ export const Search = () => {
         proyectos.map( (obj) => (include(obj.title) || include(obj.techs)) && data.push(obj) )
         
         inputValues.search.length === 0 ? setSugerencias([]) : setSugerencias( data );
+
+        
   };
 
 
@@ -93,9 +95,10 @@ export const Search = () => {
     <form after="formx" onSubmit={ sendForm } className='flex flex-col justify-between w-full items-center mx-auto relative'>
         
         <div className={`flex bg-gray-100/70 justify-between mt-4 p-0 shadow-lg w-10/12 relative ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' } `} >
-          <input className={`text-black  w-full bg-transparent py-4 px-2  ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' }`} name='search' type='text' placeholder='Buscar' onChange={ escribirInput } value={ inputValues.search } autoComplete="off" />
-          <button className='absolute right-2 bottom-0 '><img className='w-8 drop-shadow' src={`${icons.search}`} /></button>
+          <input className={`text-black outline-none  w-full bg-transparent py-4 px-2  ${ sugerencias.length > 0 ? 'rounded-t' : 'rounded' }`} name='search' type='text' placeholder='Buscar por nombre o tecnología' onChange={ escribirInput } value={ inputValues.search } autoComplete="off" />
+          <button className='absolute right-2 bottom-0  '><img className='drop-shadow w-8 p-0.5' src={`${icons.search}`} /></button>
         </div>
+  
 
         {sugerencias.length > 0 &&
           <div className=" bg-gray-100/ w-10/12 bg-gray-100/90 shadow-lg rounded-b absolute top-12 text-black z-50">
@@ -103,6 +106,8 @@ export const Search = () => {
           </div>
         }
     </form>
+
+    
 
     {/* RESULTADOS */}
       <div>

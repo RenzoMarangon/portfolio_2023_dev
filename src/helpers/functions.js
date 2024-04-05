@@ -54,3 +54,18 @@ export const  guardarFollows = (skills) =>
     
     localStorage.setItem("follows", JSON.stringify( skills ));
 }
+
+export const limpiarNombresDeSkill = (skill) => {
+  switch( skill )
+  {
+      case 'React':
+          skill = "react_logo";
+          break;
+      case 'Socket':
+          skill = "socket_io";
+          break;
+      default:
+          skill = skill.toLowerCase();
+
+  }
+}

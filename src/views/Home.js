@@ -1,7 +1,7 @@
 import React, { useContext, useState }  from 'react'
+import { Tooltip } from '@mui/material'
 
-import { TooltipButton } from '../components/TooltipButton';
-import Skill from '../components/Skill_brand';
+import Skill from '../components/Skill';
 import { Post } from '../components/Post';
 import { icons } from '../helpers/icons.json';
 
@@ -53,7 +53,14 @@ export const Home = () => {
             <div className="main__header flex flex-col ">
               
               <div className='grid  grid-cols-10 mb-4 '>
-                <img src={`${icons.user}`} alt="Invitado" className="col-span-1 w-10 p-1 mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center" />
+
+              <Tooltip title="Invitado" placeholder='bottom'>
+                <button className="col-span-1 w-10 mt-1  mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center">
+                  <img src={`${icons.user}`} alt="Invitado"  />
+
+                </button>
+              </Tooltip>
+
                 <input type="text" placeholder="¿En qué piensas?" className="col-span-9 placeholder-white search col-span-3 px-3 py-5 mt-1 outline-none text-white shadow bg-gray-100/50 rounded w-full" />
               </div>
 
@@ -67,11 +74,26 @@ export const Home = () => {
                   <div className='w-40 flex justify-between'>
 
                     
-                  <TooltipButton icon={ icons.image } alt={ "Upload image"} title={"Añadir imagen"} placement={"bottom"} ></TooltipButton>
 
-                  <TooltipButton icon={ icons.emoji } alt={ "Invitado"} title={"Emoticones"} placement={"bottom"} ></TooltipButton>
+                  <Tooltip title={"Añadir imagen"} placement={"bottom"}>
+                    <button>
+                        <img src={icons.image} alt="Upload image" className="w-7 sm:w-6 rounded-full " />
+                    </button>
+                  </Tooltip>
 
-                  <TooltipButton icon={ icons.pin } alt={ "Añadir ubicacion"} title={"Añadir ubicación"} placement={"bottom"} ></TooltipButton>
+                  <Tooltip title={"Emoticones"} placement={"bottom"}>
+                    <button>
+                        <img src={icons.emoji} alt="Emoticones" className="w-7 sm:w-6 rounded-full " />
+                    </button>
+                  </Tooltip>
+
+                  <Tooltip title={"Añadir ubicacion"} placement={"bottom"}>
+                    <button>
+                        <img src={icons.pin} alt="Aniadir ubicacion" className="w-7 sm:w-6 rounded-full " />
+                    </button>
+                  </Tooltip>
+
+    
 
                   </div>
     
