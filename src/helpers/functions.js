@@ -1,15 +1,18 @@
 import { toast } from 'alert';
+import { icons } from './icons.json';
+import { proyectos } from './proyects.json';
 
 
-
-
-
-export const mostrarAlerta = (skill, state) =>
+export const mostrarAlerta = (skill, estado, tipoAlerta) =>
 {
-    
+  
+    if(tipoAlerta === "seguir") 
+    {
+        estado ? toast.success(`Siguiendo a ${skill}`) : toast.error(`Ya no seguis a ${skill}`)
+    } else if( tipoAlerta === "likear") {
+        estado ? toast.success( `Te gusta el proyecto "${skill}"`) : toast.error(`Ya no te gusta el proyecto "${skill}"`)
+    }
 
-
-  state ? toast.success(`Siguiendo a ${skill}`) : toast.success(`Ya no seguis a ${skill}`)
   
 }
 
@@ -55,17 +58,50 @@ export const  guardarFollows = (skills) =>
     localStorage.setItem("follows", JSON.stringify( skills ));
 }
 
-export const limpiarNombresDeSkill = (skill) => {
-  switch( skill )
-  {
-      case 'React':
-          skill = "react_logo";
-          break;
-      case 'Socket':
-          skill = "socket_io";
-          break;
-      default:
-          skill = skill.toLowerCase();
+export const obtenerLikes = () => 
+{
+    const proyectos = {
+        bolucompras:false,
+        navalElectric:false,
+        dailyReminder:false,
+        flexbox:false,
+        cryptojuegos:false,
+    }
 
-  }
+    let likes = localStorage.getItem("likes");
+
+    if( likes === null)
+    {
+        likes = proyectos;
+        localStorage.setItem("likes", JSON.stringify( likes ));
+    }else{
+
+        likes = JSON.parse( likes );
+    }
+
+    return likes;
+}
+
+export const  guardarLikes = (likes) =>
+{
+    localStorage.setItem("likes", JSON.stringify( likes ));
+}
+
+export const limpiarNombresDeSkill = (skill) => {
+
+    const alt = skill.split('_')[0];
+    let skillName = alt.charAt(0).toUpperCase() + alt.slice(1);
+
+    switch( skillName )
+    {
+        case 'React':
+            skillName = "react_logo";
+            break;
+        case 'Socket':
+            skillName = "socket_io";
+            break;
+        default:
+            skillName = skillName.toLowerCase();
+
+    }
 }

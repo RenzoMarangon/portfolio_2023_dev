@@ -33,5 +33,9 @@ export const icons = {
     edit:'https://res.cloudinary.com/derznxjam/image/upload/v1698611010/portfolio/edit_w_ru3afe.png',
     linkedin:'https://res.cloudinary.com/derznxjam/image/upload/v1698610999/portfolio/linkedin_w_gywz5q.png',
     share:'https://res.cloudinary.com/derznxjam/image/upload/v1698611020/portfolio/share_w_uyl7qg.png',
-
+    heartbrake:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ao4hpys8hi5km1rqryue',
+    heartBlack:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ry9nbidgoptrr0bw0uid',
+    follow:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/xethedkbqruqxuvjgzf4',
+    unfollow:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/akwexacqv7vampr3u7wy',
+    heartWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ovuho15qvkhlr4a64jpf'
 }

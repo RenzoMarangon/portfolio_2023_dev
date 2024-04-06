@@ -5,15 +5,15 @@ import { useStorex} from "../helpers/store";
 
 const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
   
-  const alt = skill.split('_')[0];
-  const skillName = alt.charAt(0).toUpperCase() + alt.slice(1);
+  
+  let skillName = skill;
 
   limpiarNombresDeSkill(skillName)
 
 
-  const [ btnText, setBtnText ] = useState( `${follows[skillName] ? 'Siguiendo' : 'Seguir'}` );
+  const [ btnText, setBtnText ] = useState( `${follows[skill] ? 'Siguiendo' : 'Seguir'}` );
 
-  const { guardarStore } = useStorex();
+  const { guardarFollowsStore } = useStorex();
 
   const changeText = (txt) => 
   {
@@ -32,9 +32,9 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
     
       cambiarFollows(follows);
       guardarFollows(follows);
-      guardarStore(follows);
+      guardarFollowsStore(follows);
   
-      mostrarAlerta(skillName, follows[skillName]);
+      mostrarAlerta(skillName, follows[skillName],"seguir");
   }
 
     

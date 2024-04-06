@@ -5,6 +5,7 @@ import { Tooltip } from '@mui/material';
 
 import {Modalx} from './Modalx';
 import { icons } from '../helpers/icons.json';
+import { Likes } from './Likes';
 
 
 
@@ -59,9 +60,7 @@ export const Post = ({proyect}) => {
         {/* <!--POST FOOTER--> */}
         <div className=" post__footer ml-5 flex items-center justify-around w-3/6 sm:w-3/12 ">
 
-        <Tooltip title="Me gusta" placeholder='bottom' >
-          <button><img className='w-7 sm:w-5' src={`${icons.heart}`} alt='Me gusta' /></button>
-        </Tooltip>
+        <Likes proyect = {proyect} />
 
         <Tooltip title="Comentar" placeholder='bottom' >
           <button><img className='w-7 sm:w-5' src={`${icons.message}`} alt='Comentar' /></button>

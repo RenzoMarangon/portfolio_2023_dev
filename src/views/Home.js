@@ -135,12 +135,8 @@ export const Home = () => {
                   
                   return <Skill icon={skills[skill]} skill={ skill } follows={ follows }  cambiarFollows={ cambiarFollows } key={skills[skill]} />
 
-                })
-
-              }
-             
-             
-
+                })}
+                
               </div>
 
          

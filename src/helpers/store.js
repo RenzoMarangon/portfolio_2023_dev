@@ -1,10 +1,12 @@
 import { create } from 'zustand'
-import { obtenerFollows } from './functions'
+import { obtenerFollows, obtenerLikes } from './functions'
 
 export const useStorex = create(() => ({
   
     follows : obtenerFollows(),
+    likes : obtenerLikes(),
 
-    guardarStore : () => ({ follows:obtenerFollows() })
+    guardarFollowsStore : () => ({ follows : obtenerFollows() }),
+    guardarLikesStore : () =>({ likes : obtenerLikes() })
 
 }))
