@@ -6,7 +6,7 @@ import { Tooltip } from '@mui/material';
 import {Modalx} from './Modalx';
 import { icons } from '../helpers/icons.json';
 import { Likes } from './Likes';
-
+import { PostMenu } from './PostMenu';
 
 
 
@@ -36,8 +36,6 @@ export const Post = ({proyect}) => {
             <div className="post__header-time flex items-center  justify-self-end sm:mr-2">
                 <p>6 min.</p>
 
-                <button className='w-4 sm:w-3 opacity-75 ml-2'> <img className=''  src={ `${icons.dots_vertical }` } /> </button>
-                
             </div>
         </div>
         
@@ -67,11 +65,12 @@ export const Post = ({proyect}) => {
         </Tooltip>
 
         <Tooltip title="Compartir" placeholder='bottom' >
-          <button><img className='w-7 sm:w-5' src={`${icons.share}`} alt='Compartir' /></button>
+          <button><img className='w-7 sm:w-5 ' src={`${icons.share}`} alt='Compartir' /></button>
         </Tooltip>
 
-
-
+        <Tooltip title="Guardar" placeholder='bottom' >
+          <button><img className='w-6 sm:w-4' src={`${icons.bookmark}`} alt='Guardar' /></button>
+        </Tooltip>
 
         </div>
 

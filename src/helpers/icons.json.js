@@ -37,5 +37,7 @@ export const icons = {
     heartBlack:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ry9nbidgoptrr0bw0uid',
     follow:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/xethedkbqruqxuvjgzf4',
     unfollow:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/akwexacqv7vampr3u7wy',
-    heartWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ovuho15qvkhlr4a64jpf'
+    heartWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ovuho15qvkhlr4a64jpf',
+    bookmark:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/e5ejrza58rm8mwpfav6g',
+    bookmarkWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/twllrk84amf4f6snuswr',
 }

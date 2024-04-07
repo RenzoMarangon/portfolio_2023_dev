@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Toaster, toast } from 'alert';
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
+
 
 import './styles/App.css';
 import { Home } from './views/Home';
@@ -19,18 +21,6 @@ import { Message } from './views/Message';
 function App() {
 
 
-
-// console.log(icons.javascript.split('/',3)[2].split('.',2)[0]);
-const [vistas, setVistas ] = useState(
-  {
-    home:true,
-    profile:false,
-    contact:false,
-    likes:false,
-    search:false,
-    message:false,
-  }) 
-
   const positionToaster = `${window.innerWidth <= 638 ? 'top-center' : 'bottom-right'}`;
 
   
@@ -38,17 +28,23 @@ const [vistas, setVistas ] = useState(
 
   return (
       <main className="w-full h-screen shadow sm:h-50 flex    sm:justify-center items-center  sm:flex-row gap-x-5 text-sm ">
-        
-        {/* <button onClick={()=>cambiarVista('home')}> Moxtrar </button> */}
+        <BrowserRouter>
+          {/* <button onClick={()=>cambiarVista('home')}> Moxtrar </button> */}
 
-        <Header vistas = { vistas } setVistas = { setVistas }/>
+          <Header />
 
-        {vistas.home && <Home />}
-        {vistas.profile && <AboutMe /> }
-        {vistas.contact && <Contact /> }
-        {vistas.likes && <Likes /> }
-        {vistas.search && <Search /> }
-        {vistas.message && <Message/> }
+            <Routes>
+
+              <Route path='/' element = { <Home />  }/>
+              <Route path='/AboutMe' element = { <AboutMe />  }/>
+              <Route path='/Contact' element = { <Contact />  }/>
+              <Route path='/Likes' element = { <Likes />  }/>
+              <Route path='/Search' element = { <Search />  }/>
+              <Route path='/Message' element = { <Message />  }/>
+
+   
+            </Routes>
+        </BrowserRouter>
 
         <Toaster position={`${positionToaster}`}/>
       

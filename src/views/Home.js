@@ -1,4 +1,4 @@
-import React, { useContext, useState }  from 'react'
+import React, { useContext, useEffect, useState }  from 'react'
 import { Tooltip } from '@mui/material'
 
 import Skill from '../components/Skill';
@@ -8,7 +8,8 @@ import { icons } from '../helpers/icons.json';
 import { proyectos } from '../helpers/proyects.json';
 import { obtenerFollows } from '../helpers/functions';
 import { useStorex } from '../helpers/store';
-
+import { iniciarSesion, obtenerUsuario } from '../helpers/auth';
+import { ProfileMenu } from '../components/ProfileMenu';
 
 
 export const Home = () => {
@@ -36,29 +37,42 @@ export const Home = () => {
 
 
   const [follows, setFollows ] = useState( useStorex().follows );
+
+  const [ user, setUser] = useState( useStorex().usuario );
     
   const cambiarFollows = ( newFollows ) => { setFollows(newFollows) };
 
-  
+  useEffect(()=>{
+    const u = obtenerUsuario();
+    if(u !== 'desconectado')
+    {
+      setUser(u);
+    }
+  },[])
 
   return (
     <>
-        
+  
         {/* <!--MAIN--> */}
         <div className="main shadow-inner shadow-xl overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
           
-
+          {/* MAIN CONTAINER */}
           <div className="main__container h-100 sm:col-span-3 container p-2 pt-4 sm:overflow-auto">
         
+            {/* MAIN HEADER */}
             <div className="main__header flex flex-col ">
               
               <div className='grid  grid-cols-10 mb-4 '>
 
-              <Tooltip title="Invitado" placeholder='bottom'>
-                <button className="col-span-1 w-10 mt-1  mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center">
-                  <img src={`${icons.user}`} alt="Invitado"  />
+              <Tooltip title={`${user === "invitado" ? "invitado" : user.displayName}`} placeholder='bottom'>
+                {/* <button onClick={()=>{iniciarSesion( setUser )}} className="col-span-1 w-10 mt-1  mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center">
+                  {
+                    user === "desconectado" ? <img src={`${icons.user}`} alt="Invitado"  /> : <img src={`${user.photoURL}`} alt={user.displayName}  />
+                  }
 
-                </button>
+                </button> */}
+
+                <ProfileMenu userx = {user}/>
               </Tooltip>
 
                 <input type="text" placeholder="¿En qué piensas?" className="col-span-9 placeholder-white search col-span-3 px-3 py-5 mt-1 outline-none text-white shadow bg-gray-100/50 rounded w-full" />
@@ -76,7 +90,7 @@ export const Home = () => {
                     
 
                   <Tooltip title={"Añadir imagen"} placement={"bottom"}>
-                    <button>
+                    <button onClick={()=>{obtenerUsuario()}}>
                         <img src={icons.image} alt="Upload image" className="w-7 sm:w-6 rounded-full " />
                     </button>
                   </Tooltip>
@@ -98,7 +112,7 @@ export const Home = () => {
                   </div>
     
 
-                  <button className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Publicar </button>
+                  <button onClick={()=>{console.log(user)}} className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Publicar </button>
 
                 </div>
 
@@ -109,7 +123,7 @@ export const Home = () => {
             
             <hr className="mt-5 borde" />
             
-            {/* <!--POSTSSSS--> */}
+            {/* <!--POSTS--> */}
             <div className="main__posts ">
               
               {proyectos.map( (p) =>  (<Post proyect={p} key={p.site} />  ))}

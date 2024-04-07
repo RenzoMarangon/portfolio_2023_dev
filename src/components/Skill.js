@@ -43,9 +43,9 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
 
       <div className="skill grid grid-cols-4 p-2 items-center ">
 
-        <button onClick={ seguir } >
+        <button >
 
-            <img src={`${ icon }`} alt={ skillName } className="col-span-1 ml-2 w-9/12  shadow p-1 rounded-full  cursor-pointer hover:bg-gray-100/50 hover:shadow"/>
+            <img src={`${ icon }`} alt={ skillName } className="col-span-1 ml-2 w-9/12  shadow p-1 rounded-full  cursor-pointer  hover:shadow"/>
         </button>
 
         <p className="font-bold col-span-2 text-base sm:text-xs">{ skillName }</p>
