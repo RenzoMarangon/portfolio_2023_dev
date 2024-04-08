@@ -12,6 +12,7 @@ import { guardarComentario, guardarProyectos, obtenerProyectosFirebase } from '.
 import { obtenerUsuario } from '../helpers/auth';
 import { obtenerUsuarioLocalStorage } from '../helpers/functions';
 
+import { bolucompras, flexbox, cryptojuegos, dailyReminder, navalElectric } from '../helpers/firestore';
 
 export const Home = () => {
 
@@ -21,18 +22,23 @@ export const Home = () => {
 
   const [ user, setUser] = useState( useStorex().usuario );
 
+
   const cambiarFollows = ( newFollows ) => { setFollows(newFollows) };
 
   const [ projects, setProjects] = useState( useStorex().projects );
 
-
+  const prj = [ bolucompras, flexbox, cryptojuegos, dailyReminder, navalElectric ]
   
   useEffect(()=>{
     
-    setUser(obtenerUsuarioLocalStorage());
+
 
     obtenerProyectosFirebase();
+
     setProjects(JSON.parse(localStorage.getItem('projects')));
+
+    setUser(obtenerUsuarioLocalStorage());
+
   },[])
 
 
@@ -107,7 +113,8 @@ export const Home = () => {
             {/* <!--POSTS--> */}
             <div className="main__posts ">
               
-              {projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
+              {projects === null ? prj.map( (p) =>  (<Post project={p} key={p.id} />  )) : projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
+              
             </div>
             
           </div>

@@ -11,7 +11,7 @@ import { obtenerUsuarioLocalStorage } from "./functions";
 
 
 
-const bolucompras = {
+export const bolucompras = {
     title: "Bolucompras",
     techs: 'JavaScript React Firebase SASS CSS HTML',
     description: 'E-commerce realizado con React y Firebase para la autenticación de usuarios y el backend.',
@@ -23,7 +23,7 @@ const bolucompras = {
     likes:{},
   }
 
-const navalElectric ={
+export const navalElectric ={
     title: "Naval Electric",
     techs: 'JavaScript SASS CSS HTML',
     description: 'Sitio web realizado para Naval Electric, una empresa que realiza instalaciones eléctricas en barcos',
@@ -34,7 +34,7 @@ const navalElectric ={
     guardados:{},
     likes:{},
   }
- const dailyReminder ={
+ export const dailyReminder ={
     title: "Daily reminder",
     techs: 'JavaScript bootstrap CSS HTML React redux Firebase',
     description: 'Sitio web para guardar recordatorios y notas.',
@@ -45,7 +45,7 @@ const navalElectric ={
     guardados:{},
     likes:{},
   }
- const flexbox ={
+ export const flexbox ={
     title:"Introducción a Flexbox",
     techs:'JavaScript bootstrap CSS HTML',
     description:"Sitio web realizado a modo de tutorial para aprender lo basico de Flexbox",
@@ -56,7 +56,7 @@ const navalElectric ={
     guardados:{},
     likes:{},
   }
- const cryptojuegos ={
+ export const cryptojuegos ={
     title: "Cryptojuegos",
     techs: 'JavaScript SASS CSS HTML',
     description: 'Sitio web sobre juegos de temática cripto para ganar dinero',
@@ -169,6 +169,7 @@ export const obtenerProyectosFirebase = async () =>
 
         return proj;
     })
+
 
     localStorage.setItem('projects',JSON.stringify(prjts))
 
