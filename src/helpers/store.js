@@ -1,15 +1,20 @@
 import { create } from 'zustand'
-import { obtenerFollows, obtenerLikes } from './functions'
+import { guardarGuardados, obtenerFollows, obtenerGuardados, obtenerLikes, obtenerUsuarioLocalStorage } from './functions'
 import {  obtenerUsuario } from './auth'
+import { obtenerProyectos } from './functions'
 
 export const useStorex = create(() => ({
   
     follows : obtenerFollows(),
     likes : obtenerLikes(),
-    usuario: obtenerUsuario(),
+    usuario: obtenerUsuarioLocalStorage(),
+    projects: obtenerProyectos(),
+    guardados: obtenerGuardados(),
 
     guardarFollowsStore : () => ({ follows : obtenerFollows() }),
     guardarLikesStore : () =>({ likes : obtenerLikes() }),
-    guardarUsuarioStore : () =>({ usuario : obtenerUsuario() })
+    guardarUsuarioStore : () =>({ usuario : obtenerUsuarioLocalStorage() }),
+    guardarProyectoStore : () =>({ usuario : obtenerProyectos() }),
+    guardarGuardadosStore : ()=>({ guardados : obtenerGuardados()})
 
 }))

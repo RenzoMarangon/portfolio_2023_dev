@@ -4,7 +4,7 @@ import { icons } from '../helpers/icons.json';
 import { guardarLikes, mostrarAlerta, obtenerLikes } from '../helpers/functions'
 import { useStorex } from '../helpers/store';
 
-export const Likes = ({proyect}) => {
+export const Likes = ({project}) => {
 
     const [likes, setLikes ] = useState( useStorex().likes );
 
@@ -12,7 +12,7 @@ export const Likes = ({proyect}) => {
 
     const { guardarFollowsStore } = useStorex();
 
-    const [ icon, setIcon ] = useState( `${likes[proyect.id] ? icons.heartWhite : icons.heart}` );
+    const [ icon, setIcon ] = useState( `${likes[project.id] ? icons.heartWhite : icons.heart}` );
 
     const changeImg = (icon) => 
     {
@@ -22,16 +22,16 @@ export const Likes = ({proyect}) => {
     const likear = ( ) => 
     {
     
-        likes[proyect.id] = !likes[proyect.id];
+        likes[project.id] = !likes[project.id];
         
         cambiarLikes(likes);
         guardarLikes(likes);
         guardarFollowsStore(likes);
         
-        likes[proyect.id] ? changeImg(icons.heartWhite) : changeImg(icons.heart);
+        likes[project.id] ? changeImg(icons.heartWhite) : changeImg(icons.heart);
 
 
-        mostrarAlerta(proyect.title, likes[proyect.id], "likear");
+        mostrarAlerta(project.title, likes[project.id], "likear");
 
 
     }

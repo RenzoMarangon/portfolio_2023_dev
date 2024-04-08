@@ -43,11 +43,6 @@ export const Header = () =>
               </Link>            
             </Tooltip>
 
-            <Tooltip title={"Comentarios"} placement={"bottom"}>
-              <Link to={'/Message'}  >
-                <button > <img className={`w-8 sm:w-6  hover:ring-4 ring-slate-100/50 hover:bg-slate-100/50 rounded-full  p-0 m-1 sm:m-0`} src={ `${icons.message }` } /> </button>
-              </Link> 
-            </Tooltip>
 
             <Tooltip title={"Contacto"} placement={"bottom"}>
               <Link to={'/Contact'}  >

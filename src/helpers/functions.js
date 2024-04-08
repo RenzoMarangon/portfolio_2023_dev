@@ -1,5 +1,5 @@
 import { toast } from 'alert';
-import { icons } from './icons.json';
+import { icons, skills } from './icons.json';
 import { proyectos } from './proyects.json';
 
 
@@ -11,6 +11,10 @@ export const mostrarAlerta = (skill, estado, tipoAlerta) =>
         estado ? toast.success(`Siguiendo a ${skill}`) : toast.error(`Ya no seguis a ${skill}`)
     } else if( tipoAlerta === "likear") {
         estado ? toast.success( `Te gusta el proyecto "${skill}"`) : toast.error(`Ya no te gusta el proyecto "${skill}"`)
+    }else if( tipoAlerta === "guardar")
+    {
+        estado ? toast.success( `Guardaste el proyecto "${skill}"`) : toast.error(`"${skill}" se quitó de los guardados`)
+
     }
 
   
@@ -19,23 +23,7 @@ export const mostrarAlerta = (skill, estado, tipoAlerta) =>
 export const obtenerFollows = () => 
 {
 
-    const skills = 
-    {
-      react_logo : false,
-      javascript : false,
-      nextjs : false,
-      node : false,
-      cpp : false,
-      mongodb : false,
-      git : false,
-      firebase : false,
-      tailwind : false,
-      npm : false,
-      sass : false,
-      socket_io : false,
-      css3 : false,
-      bootstrap : false,
-    }
+    
 
     let follows = localStorage.getItem("follows");
 
@@ -82,26 +70,77 @@ export const obtenerLikes = () =>
     return likes;
 }
 
+export const  guardarGuardados = (guardados) =>
+{
+    localStorage.setItem("guardados", JSON.stringify( guardados ));
+}
+
+
+export const obtenerGuardados = () => 
+{
+    const proyectos = {
+        bolucompras:false,
+        navalElectric:false,
+        dailyReminder:false,
+        flexbox:false,
+        cryptojuegos:false,
+    }
+
+    let guardados = localStorage.getItem("guardados");
+
+    if( guardados === null)
+    {
+        guardados = proyectos;
+        localStorage.setItem("guardados", JSON.stringify( guardados ));
+    }else{
+
+        guardados = JSON.parse( guardados );
+    }
+
+    return guardados;
+}
+
 export const  guardarLikes = (likes) =>
 {
     localStorage.setItem("likes", JSON.stringify( likes ));
 }
 
+
+
+
+
 export const limpiarNombresDeSkill = (skill) => {
 
     const alt = skill.split('_')[0];
+
     let skillName = alt.charAt(0).toUpperCase() + alt.slice(1);
 
-    switch( skillName )
-    {
-        case 'React':
-            skillName = "react_logo";
-            break;
-        case 'Socket':
-            skillName = "socket_io";
-            break;
-        default:
-            skillName = skillName.toLowerCase();
+    skillName === 'Cpp' && (skillName = 'C++');
+    
 
-    }
+    return skillName;
+
+}
+
+export const buscarProyecto = (id) => 
+{
+    const proyecto = proyectos.filter( ( pr ) => { if( pr.id === id) return pr });
+
+    return proyecto[0];
+
+}
+
+export const obtenerProyectos = () =>
+{
+    let projects = JSON.parse(localStorage.getItem('projects'));
+
+    return projects;
+}
+
+export const obtenerUsuarioLocalStorage = () => {
+
+    let user = JSON.parse(localStorage.getItem('user'))
+    
+    
+    return user;
 }

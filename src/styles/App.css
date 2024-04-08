@@ -130,3 +130,10 @@ textarea{
   margin-left: 2px;
 }
 
+@media screen and (min-width:640px) {
+  .modal{
+    width: 600px;
+    border-radius: 24px;
+  }
+  
+}

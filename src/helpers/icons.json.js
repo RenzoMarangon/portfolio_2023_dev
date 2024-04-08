@@ -41,3 +41,21 @@ export const icons = {
     bookmark:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/e5ejrza58rm8mwpfav6g',
     bookmarkWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/twllrk84amf4f6snuswr',
 }
+
+export const skills = 
+    {
+      react_logo : false,
+      javascript : false,
+      nextjs : false,
+      node : false,
+      cpp : false,
+      mongodb : false,
+      git : false,
+      firebase : false,
+      tailwind : false,
+      npm : false,
+      sass : false,
+      socket_io : false,
+      css3 : false,
+      bootstrap : false,
+    }

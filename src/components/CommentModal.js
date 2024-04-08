@@ -62,6 +62,7 @@ export const CommentModal = ({open, handleClose, project}) => {
 
     useEffect(()=>{
       user = obtenerUsuarioLocalStorage();
+      console.log(user)
     },[])
 
     return (
@@ -91,7 +92,7 @@ export const CommentModal = ({open, handleClose, project}) => {
 
             <div className='rounded-xl w-full h-20 border-2 p-2 flex items-start'>
             <img className='w-6 rounded' src={`${user.photoURL}`} />
-            <textarea onChange={inputEnter} className='w-full outline-none pl-2 bg-black h-16 ' placeholder='Agregar un comentario' value={inputValue.text}  name="text" type='text' />
+            <textarea onChange={inputEnter} className='w-full outline-none pl-2  h-16 ' placeholder='Agregar un comentario' value={inputValue.text}  name="text" type='text' />
             </div>
 
             <button className='self-end mt-4 px-4 py-1 text-sm text-white bg-rose-400 rounded-full ' type='submit'>Enviar</button>
@@ -113,7 +114,7 @@ export const CommentModal = ({open, handleClose, project}) => {
                                                   && Object.keys(proyecto.comentarios).map( comentario => {
                                                     const {text, photoURL, displayName } = proyecto.comentarios[comentario]
                                                     return(
-                                                        <div className='w-full mt-6 '>
+                                                        <div className='w-full mt-2 '>
                                                             <div className='flex items-center'>
                                                               <img className='m-1 w-12 p-2 rounded-full ' src={`${photoURL}`} alt={`${displayName}`} />
                                                               <p className='ml-1.5 font-bold'>{displayName}</p>

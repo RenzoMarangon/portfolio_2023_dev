@@ -3,56 +3,42 @@ import { Tooltip } from '@mui/material'
 
 import Skill from '../components/Skill';
 import { Post } from '../components/Post';
-import { icons } from '../helpers/icons.json';
+import { icons,skills } from '../helpers/icons.json';
 
 import { proyectos } from '../helpers/proyects.json';
-import { obtenerFollows } from '../helpers/functions';
 import { useStorex } from '../helpers/store';
-import { iniciarSesion, obtenerUsuario } from '../helpers/auth';
 import { ProfileMenu } from '../components/ProfileMenu';
+import { guardarComentario, guardarProyectos, obtenerProyectosFirebase } from '../helpers/firestore';
+import { obtenerUsuario } from '../helpers/auth';
+import { obtenerUsuarioLocalStorage } from '../helpers/functions';
 
 
 export const Home = () => {
 
 
 
-  const skills = 
-  {
-    react_logo : icons.react_logo,
-    javascript : icons.javascript,
-    nextjs : icons.nextjs,
-    node : icons.node,
-    cpp : icons.cpp,
-    mongodb : icons.mongodb,
-    git : icons.git,
-    firebase : icons.firebase,
-    tailwind : icons.tailwind,
-    npm : icons.npm,
-    sass : icons.sass,
-    socket_io : icons.socket_io,
-    css3 : icons.css3,
-    bootstrap : icons.bootstrap,
-  }
-
-
-
   const [follows, setFollows ] = useState( useStorex().follows );
 
   const [ user, setUser] = useState( useStorex().usuario );
-    
+
   const cambiarFollows = ( newFollows ) => { setFollows(newFollows) };
 
+  const [ projects, setProjects] = useState( useStorex().projects );
+
+
+  
   useEffect(()=>{
-    const u = obtenerUsuario();
-    if(u !== 'desconectado')
-    {
-      setUser(u);
-    }
+    
+    setUser(obtenerUsuarioLocalStorage());
+
+    obtenerProyectosFirebase();
+    setProjects(JSON.parse(localStorage.getItem('projects')));
   },[])
+
+
 
   return (
     <>
-  
         {/* <!--MAIN--> */}
         <div className="main shadow-inner shadow-xl overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
           
@@ -64,13 +50,8 @@ export const Home = () => {
               
               <div className='grid  grid-cols-10 mb-4 '>
 
-              <Tooltip title={`${user === "invitado" ? "invitado" : user.displayName}`} placeholder='bottom'>
-                {/* <button onClick={()=>{iniciarSesion( setUser )}} className="col-span-1 w-10 mt-1  mr-2 rounded-full shadow bg-gray-100/50 self-center justify-self-center">
-                  {
-                    user === "desconectado" ? <img src={`${icons.user}`} alt="Invitado"  /> : <img src={`${user.photoURL}`} alt={user.displayName}  />
-                  }
-
-                </button> */}
+              <Tooltip title={`${user === null ? "invitado" : user.displayName }`} placeholder='bottom'>
+          
 
                 <ProfileMenu userx = {user}/>
               </Tooltip>
@@ -90,7 +71,7 @@ export const Home = () => {
                     
 
                   <Tooltip title={"Añadir imagen"} placement={"bottom"}>
-                    <button onClick={()=>{obtenerUsuario()}}>
+                    <button >
                         <img src={icons.image} alt="Upload image" className="w-7 sm:w-6 rounded-full " />
                     </button>
                   </Tooltip>
@@ -112,7 +93,7 @@ export const Home = () => {
                   </div>
     
 
-                  <button onClick={()=>{console.log(user)}} className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Publicar </button>
+                  <button className="self-center justify-self-end px-6 sm:px-5 py-1 shadow bg-gray-100/50 text-white rounded-full text-base sm:text-sm"> Publicar </button>
 
                 </div>
 
@@ -126,8 +107,7 @@ export const Home = () => {
             {/* <!--POSTS--> */}
             <div className="main__posts ">
               
-              {proyectos.map( (p) =>  (<Post proyect={p} key={p.site} />  ))}
-              
+              {projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
             </div>
             
           </div>
@@ -147,7 +127,7 @@ export const Home = () => {
 
                 {Object.keys( skills ).map( (skill) => {
                   
-                  return <Skill icon={skills[skill]} skill={ skill } follows={ follows }  cambiarFollows={ cambiarFollows } key={skills[skill]} />
+                  return <Skill icon={icons[skill]} skill={ skill } follows={ follows }  cambiarFollows={ cambiarFollows } key={skills[skill]} />
 
                 })}
                 

@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { icons } from '../helpers/icons.json';
 import { cerrarSesion, iniciarSesion } from '../helpers/auth';
 import { useStorex } from '../helpers/store';
+import { obtenerUsuarioLocalStorage } from '../helpers/functions';
 
 
 
@@ -24,8 +25,7 @@ export const ProfileMenu = ( ) => {
 
     const [ user, setUser] = useState( useStorex().usuario );
 
-    const [profilePicture, setProfilePicture ] = useState(icons.user);
-    const [userName, setUserName] = useState('Invitado');
+
 
     const iniSesion = () =>
     {
@@ -38,6 +38,10 @@ export const ProfileMenu = ( ) => {
       cerrarSesion(setUser)
       handleClose();
     }
+
+    useEffect(()=>{
+      setUser(obtenerUsuarioLocalStorage());
+    },[])
 
 
   return (
@@ -52,7 +56,7 @@ export const ProfileMenu = ( ) => {
       
     >
 
-        <img className='p-1 rounded-full 'src={`${user.photoURL ? user.photoURL : icons.user}`}  alt={`${user.displayName ? user.displayName : 'Invitado' }`} />
+        <img className='p-1 rounded-full 'src={`${user !== null ? user.photoURL : icons.user}`}  alt={`${user !== null ? user.displayName : 'Invitado' }`} />
         
     </button>
 
@@ -70,12 +74,11 @@ export const ProfileMenu = ( ) => {
     
       
 
-    {user === "desconectado" ? 
+    {user === null ? 
                                 <MenuItem onClick={()=>{iniSesion()}} >Iniciar sesión</MenuItem>
 
                             : (
                                     <div>
-                                        <MenuItem onClick={handleClose} >Ir a mi perfil</MenuItem>
                                         <MenuItem onClick={()=>{cecSesion()}} >Cerrar sesión</MenuItem>
                                     </div>
                                )

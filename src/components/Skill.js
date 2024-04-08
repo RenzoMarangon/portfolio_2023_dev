@@ -8,7 +8,7 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
   
   let skillName = skill;
 
-  limpiarNombresDeSkill(skillName)
+  skillName = limpiarNombresDeSkill(skillName);
 
 
   const [ btnText, setBtnText ] = useState( `${follows[skill] ? 'Siguiendo' : 'Seguir'}` );

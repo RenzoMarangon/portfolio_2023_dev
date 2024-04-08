@@ -16,8 +16,7 @@ export const obtenerUsuario = () =>
   if (auth.currentUser === null) {
 
 
-    localStorage.setItem( 'user' , 'desconectado' );
-    return 'desconectado';
+    return null;
   }
 
   const {displayName, photoURL, email} = auth.currentUser;
@@ -35,7 +34,7 @@ export const iniciarSesion = (setUser) =>
 
   const u = obtenerUsuario()
 
-  if( u === 'desconectado')
+  if( u === null)
   {
     signInWithPopup(auth, provider)
     .then((result) => {
@@ -74,8 +73,9 @@ export const cerrarSesion = (setUser) => {
     .then(() => {
       JSAlert.alert("", "Sesión cerrada con éxito",JSAlert.Icons.Success,"Aceptar");
 
-      localStorage.clear();
-      setUser('desconectado');
+      localStorage.removeItem('user');
+      
+      setUser(null);
 
     })
     .catch((error) => {
