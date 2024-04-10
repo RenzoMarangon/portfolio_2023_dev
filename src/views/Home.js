@@ -11,8 +11,8 @@ import { ProfileMenu } from '../components/ProfileMenu';
 import { guardarComentario, guardarProyectos, obtenerProyectosFirebase } from '../helpers/firestore';
 import { obtenerUsuario } from '../helpers/auth';
 import { obtenerProyectos, obtenerUsuarioLocalStorage } from '../helpers/functions';
+import { PostContainer } from '../components/PostContainer';
 
-import { bolucompras, flexbox, cryptojuegos, dailyReminder, navalElectric } from '../helpers/firestore';
 
 export const Home = () => {
 
@@ -22,24 +22,15 @@ export const Home = () => {
 
   const [ user, setUser] = useState( useStorex().usuario );
 
-  const [ loading, setLoading ] = useState( false );
 
 
   const cambiarFollows = ( newFollows ) => { setFollows(newFollows) };
 
   const [ projects, setProjects] = useState( useStorex().projects );
 
-  const prj = [ bolucompras, flexbox, cryptojuegos, dailyReminder, navalElectric ]
-
-
   
   useEffect(()=>{
     
-    obtenerProyectosFirebase(setProjects).then(()=>{
-      setLoading(true);
-    })
-
-
 
     setUser(obtenerUsuarioLocalStorage());
 
@@ -115,11 +106,7 @@ export const Home = () => {
             <hr className="mt-5 borde" />
             
             {/* <!--POSTS--> */}
-            <div className="main__posts ">
-              
-              { !loading ? 'cargando' : projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
-              
-            </div>
+            <PostContainer />
             
           </div>
           

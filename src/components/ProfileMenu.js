@@ -39,9 +39,7 @@ export const ProfileMenu = ( ) => {
       handleClose();
     }
 
-    useEffect(()=>{
-      setUser(obtenerUsuarioLocalStorage());
-    },[])
+  
 
 
   return (
@@ -57,7 +55,6 @@ export const ProfileMenu = ( ) => {
     >
 
         <img className='p-1 rounded-full 'src={`${user !== null ? user.photoURL : icons.user}`}  alt={`${user !== null ? user.displayName : 'Invitado' }`} />
-        
     </button>
 
     <Menu
