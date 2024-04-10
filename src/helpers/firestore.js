@@ -134,7 +134,7 @@ export const guardarComentario = async (project, comment) =>
       }
 }
 
-export const obtenerProyecto = async( project) =>{
+export const obtenerProyecto = async( project ) =>{
 
     const docRef = doc(firestore, "projects", `${project.id}`);
 
@@ -143,13 +143,10 @@ export const obtenerProyecto = async( project) =>{
 
     return proyecto.data();
 
-
-
-
 }
 
 
-export const obtenerProyectosFirebase = async () =>
+export const obtenerProyectosFirebase = async (setProjects) =>
 {
   try {
     const itemCollection = collection( firestore, 'projects' );
@@ -170,9 +167,10 @@ export const obtenerProyectosFirebase = async () =>
         return proj;
     })
 
+    setProjects(prjts);
 
     localStorage.setItem('projects',JSON.stringify(prjts))
-
+    
 
     return prjts;
 

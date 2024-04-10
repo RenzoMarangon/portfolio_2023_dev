@@ -62,7 +62,6 @@ export const CommentModal = ({open, handleClose, project}) => {
 
     useEffect(()=>{
       user = obtenerUsuarioLocalStorage();
-      console.log(user)
     },[])
 
     return (

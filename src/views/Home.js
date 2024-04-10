@@ -10,7 +10,7 @@ import { useStorex } from '../helpers/store';
 import { ProfileMenu } from '../components/ProfileMenu';
 import { guardarComentario, guardarProyectos, obtenerProyectosFirebase } from '../helpers/firestore';
 import { obtenerUsuario } from '../helpers/auth';
-import { obtenerUsuarioLocalStorage } from '../helpers/functions';
+import { obtenerProyectos, obtenerUsuarioLocalStorage } from '../helpers/functions';
 
 import { bolucompras, flexbox, cryptojuegos, dailyReminder, navalElectric } from '../helpers/firestore';
 
@@ -22,20 +22,24 @@ export const Home = () => {
 
   const [ user, setUser] = useState( useStorex().usuario );
 
+  const [ loading, setLoading ] = useState( false );
+
 
   const cambiarFollows = ( newFollows ) => { setFollows(newFollows) };
 
   const [ projects, setProjects] = useState( useStorex().projects );
 
   const prj = [ bolucompras, flexbox, cryptojuegos, dailyReminder, navalElectric ]
+
+
   
   useEffect(()=>{
     
+    obtenerProyectosFirebase(setProjects).then(()=>{
+      setLoading(true);
+    })
 
 
-    obtenerProyectosFirebase();
-
-    setProjects(JSON.parse(localStorage.getItem('projects')));
 
     setUser(obtenerUsuarioLocalStorage());
 
@@ -113,7 +117,7 @@ export const Home = () => {
             {/* <!--POSTS--> */}
             <div className="main__posts ">
               
-              {projects === null ? prj.map( (p) =>  (<Post project={p} key={p.id} />  )) : projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
+              { !loading ? 'cargando' : projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
               
             </div>
             
