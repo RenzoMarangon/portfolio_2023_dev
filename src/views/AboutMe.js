@@ -10,8 +10,8 @@ export const AboutMe = () => {
    
     const downloadFile = () => {
         const link = document.createElement('a');
-        link.href = './cv_renzo_marangon.pdf'; 
-        link.download = 'cv_renzo_marangon.pdf'; 
+        link.href = './CV-Renzo Marangon.pdf'; 
+        link.download = 'CV-Renzo Marangon.pdf'; 
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
