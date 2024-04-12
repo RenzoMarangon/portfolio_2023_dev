@@ -42,7 +42,7 @@ export const AboutMe = () => {
             
             </p>
 
-            <a href='https://drive.google.com/file/d/1IwrqJGlMuVAJoI9AuPK42VEcE7HJG3Ss/view?usp=drive_link' about='_BLANK' className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' > Descargar cv</a>
+            <a href='https://drive.google.com/file/d/1IwrqJGlMuVAJoI9AuPK42VEcE7HJG3Ss/view?usp=drive_link' target='_BLANK' className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' > Descargar cv</a>
 
 
         </div>
@@ -55,7 +55,7 @@ export const AboutMe = () => {
 
 
             <ul className='flex items-center flex-wrap my-3 '>
-                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Javascript</li>
+                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow b<ackdrop-blur-sm'>Javascript</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>React</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Next.js</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Node</li>

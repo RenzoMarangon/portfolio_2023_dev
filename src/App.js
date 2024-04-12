@@ -27,7 +27,7 @@ function App() {
 
 
   return (
-      <main className="w-full h-screen shadow sm:h-50 flex    sm:justify-center items-center  sm:flex-row gap-x-5 text-sm ">
+      <main className="w-full h-screen shadow flex sm:justify-center items-center  gap-x-5 text-sm ">
         <BrowserRouter>
           {/* <button onClick={()=>cambiarVista('home')}> Moxtrar </button> */}
 

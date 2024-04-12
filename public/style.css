@@ -1,11 +1,12 @@
-
 html{
-    background-image: url('./backkkk.webp');
-    background-position: center ;
-    background-repeat: repeat;
-    color:white;
-    
-  }
+  background-image: url('./backkkk.webp');
+  background-position: center ;
+  background-repeat: repeat;
+
+ 
+  color:white;
+  
+}
 
 @import '@splidejs/react-splide/css';
 
@@ -18,149 +19,148 @@ html{
 
 
 button, input {
-  font-family: inherit;
+font-family: inherit;
 }
 
 label {
-  margin-right: 1rem;
+margin-right: 1rem;
 }
 
 input {
-  height: 1.5rem;
-  width: 4rem;
-  margin-right: 3px;
+height: 1.5rem;
+width: 4rem;
+margin-right: 3px;
 }
 
 input::placeholder, textarea::placeholder{
-  color:rgb(77, 77, 77);
+color:rgb(77, 77, 77);
 }
 
 
 label span {
-  margin-right: 4px;
+margin-right: 4px;
 }
 
 .examples {
-  padding: 2rem 0;
+padding: 2rem 0;
 }
 
 .wrapper {
-  max-width: 600px;
-  margin: 4rem auto;
+max-width: 600px;
+margin: 4rem auto;
 }
 
 .splide__slide {
-  background: #eee;
+background: #eee;
 }
 
 .splide__slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+width: 100%;
+height: 100%;
+object-fit: cover;
 }
 
 .splide--nav {
-  margin-top: 1rem;
+margin-top: 1rem;
 }
 
 
 
 .educ{
-  position:relative;
-  width: 300px;
+position:relative;
+width: 300px;
 
 }
 
 .educ::before{
-  border-left:2px #fc0e46 solid;
-  width:2px;
-  height:calc( 100% - 55px );
-  content:'';
-  position:absolute;
-  left:0px;
-  top:0px;
-  z-index: -1;
-  
+border-left:2px #fc0e46 solid;
+width:2px;
+height:calc( 100% - 55px );
+content:'';
+position:absolute;
+left:0px;
+top:0px;
+z-index: -1;
+
 
 }
 
 .educ li{
-  padding-left: 10px;
-  position: relative;
-  margin: 6px 0
+padding-left: 10px;
+position: relative;
+margin: 6px 0
 }
 
 .educ li:before{
-  width: 7px;
-  height:7px;
-  border-radius: 15px;
-  content:'';
-  background-color: #F0446B;
-  box-shadow: black 1px 1px;
-  left: -3px;
-  top: 8px;
-  position: absolute;
+width: 7px;
+height:7px;
+border-radius: 15px;
+content:'';
+background-color: #F0446B;
+box-shadow: black 1px 1px;
+left: -3px;
+top: 8px;
+position: absolute;
 }
 
 
 
 .exp{
-  position:relative;
-  width: 300px;
+position:relative;
+width: 300px;
 
 }
 
 .exp::before{
-  border-left:2px #fc0e46 solid;
-  width:2px;
-  height:calc( 100% - 76px );
-  content:'';
-  position:absolute;
-  left:0px;
-  top:0px;
-  z-index: -1;
-  
+border-left:2px #fc0e46 solid;
+width:2px;
+height:calc( 100% - 76px );
+content:'';
+position:absolute;
+left:0px;
+top:0px;
+z-index: -1;
+
 
 }
 
 .exp li{
-  padding-left: 10px;
-  position: relative;
-  margin: 6px 0
+padding-left: 10px;
+position: relative;
+margin: 6px 0
 }
 
 .exp li:before{
-  width: 7px;
-  height:7px;
-  border-radius: 15px;
-  content:'';
-  background-color: #F0446B;
-  box-shadow: black 1px 1px;
-  left: -3px;
-  top: 8px;
-  position: absolute;
+width: 7px;
+height:7px;
+border-radius: 15px;
+content:'';
+background-color: #F0446B;
+box-shadow: black 1px 1px;
+left: -3px;
+top: 8px;
+position: absolute;
 }
 
 
 
 .text-pink{
-  color: #F0446B;
-  font-weight: bold;
-  text-shadow:black 1px 1px;
+color: #F0446B;
+font-weight: bold;
+text-shadow:black 1px 1px;
 }
 
 .text-wh{
-  color:white;
-  
-  text-shadow:rgba(114, 114, 114, 0.575) 2px 2px;
+color:white;
+
+text-shadow:rgba(114, 114, 114, 0.575) 2px 2px;
 }
 
 
 .transicion{
-  transition: all ease-in-out .1s;
+transition: all ease-in-out .1s;
 }
 
 .agrandar:hover{
-  transform: scale(1.1);
+transform: scale(1.1);
 }
-
