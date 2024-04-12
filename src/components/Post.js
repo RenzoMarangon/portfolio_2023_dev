@@ -4,6 +4,7 @@ import { Tooltip } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 
+
 import { CommentModal } from './CommentModal';
 import { icons } from '../helpers/icons.json';
 import { Likes } from './Likes';
@@ -46,18 +47,18 @@ export const Post = ({project}) => {
   }
 
 
-    const StyledBadge = styled(Badge)(({ theme }) => ({
-      '& .MuiBadge-badge': {
-        right: -2,
-        top: 2,
-        padding: '0 4px',
-        fontSize:'11px'
-      },
-    }));
+  const StyledBadge = styled(Badge)(() => ({
+    '& .MuiBadge-badge': {
+      right: -2,
+      top: 2,
+      padding: '0 4px',
+      fontSize:'11px'
+    },
+  }));
 
    
   return (
-    <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5">
+    <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5" >
         {/* <!--POST HEADER--> */}
         <div className="post__header grid grid-cols-3  ">
         
@@ -79,9 +80,8 @@ export const Post = ({project}) => {
               <div  className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
                 
-
-                <img className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl ' src={`${project.img}`} alt={`${project.title}`} />        
-
+                  <img className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl ' src={`${project.img}`} alt={`${project.title}`} />        
+    
               </div>
             
 

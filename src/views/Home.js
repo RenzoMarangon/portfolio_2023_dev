@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState }  from 'react'
 import { Tooltip } from '@mui/material'
+import LazyLoad from 'react-lazyload';
+
 
 import Skill from '../components/Skill';
 import { Post } from '../components/Post';
@@ -41,10 +43,10 @@ export const Home = () => {
   return (
     <>
         {/* <!--MAIN--> */}
-        <div className="main shadow-inner shadow-xl overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
+        <div className="main shadow-inner shadow-xl  overflow-y sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
           
           {/* MAIN CONTAINER */}
-          <div className="main__container h-100 sm:col-span-3 container p-2 pt-4 sm:overflow-auto">
+          <div className="main__container h-100   sm:col-span-3 container p-2 pt-4 overflow-auto" id="overflow">
         
             {/* MAIN HEADER */}
             <div className="main__header flex flex-col ">
@@ -106,8 +108,10 @@ export const Home = () => {
             <hr className="mt-5 borde" />
             
             {/* <!--POSTS--> */}
-            <PostContainer />
-            
+            <LazyLoad height={200} offset={100} scrollContainer="#overflow">
+
+              <PostContainer />
+            </LazyLoad>
           </div>
           
           {/* <!--MAIN ASIDE--> */}

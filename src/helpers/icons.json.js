@@ -15,7 +15,7 @@ export const icons = {
     bootstrap : 'https://res.cloudinary.com/derznxjam/image/upload/v1698610999/portfolio/bootstrap_w_ladgnl.png',
     firebase : 'https://res.cloudinary.com/derznxjam/image/upload/v1698611018/portfolio/firebase_w_cguhw0.png',
     redux:'https://res.cloudinary.com/derznxjam/image/upload/v1698611023/portfolio/redux_w_yu0abp.png',
-    perfil : 'https://res.cloudinary.com/derznxjam/image/upload/v1699486880/portfolio/perfil_d1se0a.png',
+    perfil : 'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/kcrqc5qi1rq9zq1ys03i',
     retuit : 'https://res.cloudinary.com/derznxjam/image/upload/v1698611029/portfolio/retuit_w_zco08p.png',
     user : 'https://res.cloudinary.com/derznxjam/image/upload/v1698611003/portfolio/user_w_r9cgat.png',
     image: 'https://res.cloudinary.com/derznxjam/image/upload/v1698611000/portfolio/photo_w_fixzu1.png',

@@ -8,15 +8,6 @@ export const AboutMe = () => {
 
 
    
-    const downloadFile = () => {
-        const link = document.createElement('a');
-        link.href = './CV-Renzo Marangon.pdf'; 
-        link.download = 'CV-Renzo Marangon.pdf'; 
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      };
-
 
     const [ educExp, setEducExp ] = useState({
         educacion: true,
@@ -51,7 +42,7 @@ export const AboutMe = () => {
             
             </p>
 
-            <button className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' onClick={()=>{downloadFile()}}> Descargar cv</button>
+            <a href='https://drive.google.com/file/d/1IwrqJGlMuVAJoI9AuPK42VEcE7HJG3Ss/view?usp=drive_link' about='_BLANK' className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' > Descargar cv</a>
 
 
         </div>

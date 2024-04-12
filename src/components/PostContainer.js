@@ -17,7 +17,7 @@ export const PostContainer = memo(function() {
     },[])
 
   return (
-    <div className={`main__posts  ${!loading && 'flex justify-center mt-10'}`} >
+    <div className={`main__posts ${!loading && 'flex justify-center mt-10'}`} >
         { !loading ? <ProgressCircle /> : projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
     </div>
   )
