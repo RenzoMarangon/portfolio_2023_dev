@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { mostrarAlerta, obtenerFollows, guardarFollows, limpiarNombresDeSkill } from "../helpers/functions";
 import { useStorex} from "../helpers/store";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const Skill = ( {icon, skill, follows, cambiarFollows, scroll} ) => {
+const Skill = ( { skill, follows, cambiarFollows, img} ) => {
   
   
   let skillName = skill;
 
   skillName = limpiarNombresDeSkill(skillName);
-
 
   const [ btnText, setBtnText ] = useState( `${follows[skill] ? 'Siguiendo' : 'Seguir'}` );
 
@@ -37,20 +35,14 @@ const Skill = ( {icon, skill, follows, cambiarFollows, scroll} ) => {
       mostrarAlerta(skillName, follows[skillName],"seguir");
   }
 
+
     
 
     return ( 
 
       <div className="skill grid grid-cols-4 p-2 items-center ">
-
         <button >
-        <LazyLoadImage
-                  alt={skillName}
-                  height={'55px'}
-                  src={icon} // use normal <img> attributes as props
-                  width={'100%'}
-                  effect="blur"
-                  className=' col-span-1 ml-2 w-9/12  shadow p-1 rounded-full hover:shadow'/>
+        {img}
               
         </button>
 

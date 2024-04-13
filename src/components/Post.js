@@ -15,7 +15,7 @@ import { Guardado } from './Guardado';
 
 
 
-export const Post = ({project}) => {
+export const Post = ({project, img}) => {
 
 
   const [open, setOpen] = useState(false);
@@ -79,13 +79,7 @@ export const Post = ({project}) => {
               
               <div  className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
                 {/* <img className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl ' src={`${project.img}`} alt={`${project.title}`} />         */}
-                <LazyLoadImage
-                  alt={project.id}
-                  height={'300px'}
-                  src={project.img} // use normal <img> attributes as props
-                  width={'100%'}
-                  effect="blur"
-                  className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl '/>
+                { img }
               
               
               </div>

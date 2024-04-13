@@ -2,8 +2,9 @@ import React, { useRef, useState } from 'react'
 import { icons,skills } from '../helpers/icons.json';
 import Skill from './Skill';
 import { useStorex } from '../helpers/store';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export const SkillContainer = () => {
+const SkillContainer = () => {
 
 
   const [follows, setFollows ] = useState( useStorex().follows );
@@ -17,9 +18,21 @@ export const SkillContainer = () => {
 
                 {Object.keys( skills ).map( (skill) => {
                 
-                return <Skill icon={icons[skill]} skill={ skill } follows={ follows }  cambiarFollows={ cambiarFollows } key={skills[skill]} />
+
+                const img = <LazyLoadImage
+                              alt={skill}
+                              height={'55px'}
+                              src={icons[skill]} // use normal <img> attributes as props
+                              width={'100%'}
+                              effect="blur"
+                              className=' col-span-1 ml-2 w-9/12  shadow p-1 rounded-full hover:shadow'/>
+
+
+                return <Skill img={img} skill={ skill } follows={ follows }  cambiarFollows={ cambiarFollows } key={skills[skill]} />
 
                 })}
         </div>
   )
 }
+
+export default trackWindowScroll(SkillContainer);

@@ -7,8 +7,8 @@ import { useStorex } from '../helpers/store';
 import { ProfileMenu } from '../components/ProfileMenu';
 import { obtenerUsuario } from '../helpers/auth';
 import { obtenerProyectos, obtenerUsuarioLocalStorage } from '../helpers/functions';
-import { PostContainer } from '../components/PostContainer';
-import { SkillContainer } from '../components/SkillContainer';
+import PostContainer from '../components/PostContainer';
+import SkillContainer from '../components/SkillContainer';
 
 
 export const Home = () => {
