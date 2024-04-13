@@ -3,15 +3,14 @@ import { useState } from 'react';
 import { Tooltip } from '@mui/material';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 import { CommentModal } from './CommentModal';
 import { icons } from '../helpers/icons.json';
 import { Likes } from './Likes';
-import { PostMenu } from './PostMenu';
-import { Link } from 'react-router-dom';
 import JSAlert from 'js-alert';
-import { guardarComentario, guardarProyectos } from '../helpers/firestore';
 import { Guardado } from './Guardado';
 
 
@@ -20,6 +19,7 @@ export const Post = ({project}) => {
 
 
   const [open, setOpen] = useState(false);
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -56,6 +56,7 @@ export const Post = ({project}) => {
     },
   }));
 
+
    
   return (
     <div className="post flex flex-col my-4 mx-2 mb-4 border-b border-gray-100/10 drop-shadow pb-5" >
@@ -75,14 +76,20 @@ export const Post = ({project}) => {
         {/* <!--POST MAIN--> */}
         
           <div onClick={confirmacion} className="post__main p-2 sm:p-4 cursor-pointer" >
-
-            
+              
               <div  className={`relative w-100 h-80 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
-
-                
-                  <img className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl ' src={`${project.img}`} alt={`${project.title}`} />        
-    
+                {/* <img className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl ' src={`${project.img}`} alt={`${project.title}`} />         */}
+                <LazyLoadImage
+                  alt={project.id}
+                  height={'300px'}
+                  src={project.img} // use normal <img> attributes as props
+                  width={'100%'}
+                  effect="blur"
+                  className=' z-1 top-0 w-full h-80 mx-auto  object-cover-center rounded-3xl '/>
+              
+              
               </div>
+
             
 
 

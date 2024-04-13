@@ -105,10 +105,6 @@ export const  guardarLikes = (likes) =>
     localStorage.setItem("likes", JSON.stringify( likes ));
 }
 
-
-
-
-
 export const limpiarNombresDeSkill = (skill) => {
 
     const alt = skill.split('_')[0];
@@ -144,3 +140,4 @@ export const obtenerUsuarioLocalStorage = () => {
     
     return user;
 }
+

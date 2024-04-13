@@ -36,10 +36,10 @@ export const Home = () => {
   return (
     <>
         {/* <!--MAIN--> */}
-        <div className="main shadow-inner shadow-xl overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
+        <div className="main shadow-xl overflow-y-auto sm:rounded-2xl container h-full w-full flex flex-col sm:grid   sm:grid-rows-1 sm:grid-cols-4 box-content  sm:w-5/6 xl:w-2/3 flex sm:h-5/6 ">
           
           {/* MAIN CONTAINER */}
-          <div className="main__container h-100 sm:col-span-3 container p-2 pt-4 sm:overflow-auto ">
+          <div className="main__container h-100 sm:col-span-3 container p-2 pt-4 sm:overflow-auto" id="#overflow">
         
             {/* MAIN HEADER */}
             <div className="main__header flex flex-col ">
@@ -101,7 +101,6 @@ export const Home = () => {
             <hr className="mt-5 borde" />
             
             {/* <!--POSTS--> */}
-
               <PostContainer />
 
           </div>
@@ -114,7 +113,9 @@ export const Home = () => {
               <h4 className="text-center mb-3 sm:mb-0">Sugerencia de tecnologías</h4>
               {/* <!--SIDE CONTAINER SKILLS--> */}
 
-              <SkillContainer />
+
+                  <SkillContainer />
+
                 
 
             </div>

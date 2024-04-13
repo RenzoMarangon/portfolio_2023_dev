@@ -34,17 +34,7 @@ export const navalElectric ={
     guardados:{},
     likes:{},
   }
- export const dailyReminder ={
-    title: "Daily reminder",
-    techs: 'JavaScript bootstrap CSS HTML React redux Firebase',
-    description: 'Sitio web para guardar recordatorios y notas.',
-    site:'https://post-itx-app.netlify.app/',
-    img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/warma9sgidazelk5ep46',
-    id:'dailyReminder',
-    comentarios:{},
-    guardados:{},
-    likes:{},
-  }
+
  export const flexbox ={
     title:"Introducción a Flexbox",
     techs:'JavaScript bootstrap CSS HTML',
@@ -85,10 +75,6 @@ export const guardarProyectos = async (project) =>
 
         await setDoc(doc(firestore, "projects", `${navalElectric.id}`), 
             navalElectric
-        );
-
-        await setDoc(doc(firestore, "projects", `${dailyReminder.id}`), 
-            dailyReminder
         );
 
         await setDoc(doc(firestore, "projects", `${flexbox.id}`), 

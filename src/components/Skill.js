@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { mostrarAlerta, obtenerFollows, guardarFollows, limpiarNombresDeSkill } from "../helpers/functions";
 import { useStorex} from "../helpers/store";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
-
-const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
+const Skill = ( {icon, skill, follows, cambiarFollows, scroll} ) => {
   
   
   let skillName = skill;
@@ -44,8 +44,14 @@ const Skill = ( {icon, skill, follows, cambiarFollows} ) => {
       <div className="skill grid grid-cols-4 p-2 items-center ">
 
         <button >
-
-            <img src={`${ icon }`} alt={ skillName } className="col-span-1 ml-2 w-9/12  shadow p-1 rounded-full  cursor-pointer  hover:shadow"/>
+        <LazyLoadImage
+                  alt={skillName}
+                  height={'55px'}
+                  src={icon} // use normal <img> attributes as props
+                  width={'100%'}
+                  effect="blur"
+                  className=' col-span-1 ml-2 w-9/12  shadow p-1 rounded-full hover:shadow'/>
+              
         </button>
 
         <p className="font-bold col-span-2 text-base sm:text-xs">{ skillName }</p>

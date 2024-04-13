@@ -3,7 +3,6 @@ import { obtenerProyectosFirebase } from '../helpers/firestore';
 import { useStorex } from '../helpers/store';
 import { Post } from './Post';
 import { ProgressCircle } from './ProgressCircle';
-import LazyLoad from 'react-lazyload';
 
 export const PostContainer = memo(function() {
 
@@ -18,10 +17,9 @@ export const PostContainer = memo(function() {
     },[])
 
   return (
-    <div className={`main__posts   ${!loading && 'flex justify-center mt-10'}`} id="overflow">
-      <LazyLoad height={100} offset={100} scrollContainer="#overflow">
-        { !loading ? <ProgressCircle /> : projects.map( (p) =>  (<Post project={p} key={p.id} />  ))}
-      </LazyLoad >
+    <div className={`main__posts  ${!loading && 'flex justify-center mt-24 mb-96 sm:mb-10 '}`}>
+
+        { !loading ? <ProgressCircle /> : projects.map( (p) =>  (<Post project={p} key={p.id}  />  ))}
     </div>
   )
 });
