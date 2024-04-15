@@ -5,7 +5,6 @@ import { proyectos } from './proyects.json';
 
 export const mostrarAlerta = (skill, estado, tipoAlerta) =>
 {
-  
     if(tipoAlerta === "seguir") 
     {
         estado ? toast.success(`Siguiendo a ${skill}`) : toast.error(`Ya no seguis a ${skill}`)
@@ -16,15 +15,10 @@ export const mostrarAlerta = (skill, estado, tipoAlerta) =>
         estado ? toast.success( `Guardaste el proyecto "${skill}"`) : toast.error(`"${skill}" se quitó de los guardados`)
 
     }
-
-  
 }
 
 export const obtenerFollows = () => 
 {
-
-    
-
     let follows = localStorage.getItem("follows");
 
     if( follows === null)
@@ -76,7 +70,7 @@ export const  guardarGuardados = (guardados) =>
 }
 
 
-export const obtenerGuardados = () => 
+export const obtenerGuardados = async() => 
 {
     const proyectos = {
         bolucompras:false,
@@ -98,6 +92,8 @@ export const obtenerGuardados = () =>
     }
 
     return guardados;
+    
+
 }
 
 export const  guardarLikes = (likes) =>

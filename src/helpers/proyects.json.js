@@ -40,3 +40,11 @@ export const proyectos = [
     id:'cryptojuegos'
   },
 ];
+
+export const proyectosLimpios =
+{
+  bolucompras:false,
+  navalElectric:false,
+  flexbox:false,
+  cryptojuegos:false,
+}

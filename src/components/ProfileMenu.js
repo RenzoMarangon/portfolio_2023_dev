@@ -1,14 +1,19 @@
-import React, { useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { icons } from '../helpers/icons.json';
-import { cerrarSesion, iniciarSesion } from '../helpers/auth';
-import { useStorex } from '../helpers/store';
+import { cerrarSesion, iniciarSesion, obtenerUsuario } from '../helpers/auth';
+import {  useStorex } from '../helpers/store';
 import { obtenerUsuarioLocalStorage } from '../helpers/functions';
+import { proyectosLimpios } from '../helpers/proyects.json';
+import { UseContextStore } from '../helpers/ContextStore';
+import { obtenerGuardadosFireStore } from '../helpers/firestore';
 
 
 
 export const ProfileMenu = ( ) => {
+    const { user, setUser, setLikes, setGuardados, guardados } = useContext( UseContextStore );
+
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -23,23 +28,32 @@ export const ProfileMenu = ( ) => {
     };
 
 
-    const [ user, setUser] = useState( useStorex().usuario );
-
-
-
-    const iniSesion = () =>
+    const iniSesion = async() =>
     {
-        iniciarSesion(setUser);
-        handleClose();
+      iniciarSesion(setUser);
+
+      
+      handleClose();
     }
 
     const cecSesion = () => 
     {
+      // setUser(null);
+      
+      setGuardados(proyectosLimpios);
+      setLikes(proyectosLimpios);
       cerrarSesion(setUser)
       handleClose();
     }
 
+    useEffect(()=>{
+
+      obtenerGuardadosFireStore( user, setGuardados );
+    },[user])
   
+
+
+
 
 
   return (

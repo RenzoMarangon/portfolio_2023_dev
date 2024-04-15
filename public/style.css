@@ -1,5 +1,4 @@
 html{
-  background-image: url('./backkkk.webp');
   background-position: center ;
   background-repeat: repeat;
 
@@ -15,7 +14,11 @@ html{
 
 @import '@splidejs/react-splide/css/core';
 
+body{
+  background: rgb(247,131,130);
+background: linear-gradient(142deg, rgba(247,131,130,1) 5%, rgba(226,104,125,1) 17%, rgba(177,81,97,1) 38%, rgba(173,74,91,1) 59%, rgba(189,95,101,1) 77%, rgba(227,118,122,1) 88%, rgba(222,112,112,1) 100%);
 
+}
 
 
 button, input {
@@ -142,7 +145,9 @@ top: 8px;
 position: absolute;
 }
 
-
+.bg-light-gray{
+  background: #f2f2f2;
+}
 
 .text-pink{
 color: #F0446B;
@@ -164,3 +169,4 @@ transition: all ease-in-out .1s;
 .agrandar:hover{
 transform: scale(1.1);
 }
+

@@ -9,28 +9,22 @@ import { obtenerUsuario } from '../helpers/auth';
 import { obtenerProyectos, obtenerUsuarioLocalStorage } from '../helpers/functions';
 import PostContainer from '../components/PostContainer';
 import SkillContainer from '../components/SkillContainer';
+import { guardarProyectos } from '../helpers/firestore';
 
 
 export const Home = () => {
 
 
-
-
   const [ user, setUser] = useState( useStorex().usuario );
-
-
-
-
-  const [ projects, setProjects] = useState( useStorex().projects );
 
   
   useEffect(()=>{
     
 
     setUser(obtenerUsuarioLocalStorage());
+    
 
   },[])
-
 
 
   return (

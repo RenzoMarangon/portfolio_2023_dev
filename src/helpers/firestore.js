@@ -17,6 +17,7 @@ export const bolucompras = {
     description: 'E-commerce realizado con React y Firebase para la autenticación de usuarios y el backend.',
     site:'https://bolucompras.netlify.app/',
     img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/unp5tmstwros0uj51d8a',
+    imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/kg8uwqcvez7whowhl9bo',
     id:'bolucompras',
     comentarios:{},
     guardados:{},
@@ -29,6 +30,7 @@ export const navalElectric ={
     description: 'Sitio web realizado para Naval Electric, una empresa que realiza instalaciones eléctricas en barcos',
     site:'https://post-itx-app.netlify.app/',
     img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/mps1gkxjykijtid1ea1q',
+    imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/lv9wbuyigbgetvof1ocf',
     id:'navalElectric',
     comentarios:{},
     guardados:{},
@@ -41,6 +43,7 @@ export const navalElectric ={
     description:"Sitio web realizado a modo de tutorial para aprender lo basico de Flexbox",
     site:'https://introduccion-a-flexbox.netlify.app/',
     img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/zvuv3gnq9lmy89osgtqo',
+    imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/bdarevlknu0qu2von3wt',
     id:'flexbox',
     comentarios:{},
     guardados:{},
@@ -52,6 +55,7 @@ export const navalElectric ={
     description: 'Sitio web sobre juegos de temática cripto para ganar dinero',
     site:'https://cryptojuegos.netlify.app/',
     img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/hqfseqzgkqxbsnbq8e8p',
+    imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/iyksetcyssbgk9459e87',
     id:'cryptojuegos',
     comentarios:{},
     guardados:{},
@@ -61,8 +65,6 @@ export const navalElectric ={
 
 export const guardarProyectos = async (project) =>
 {
-
-
     try {
 
         await setDoc(doc(firestore, "projects", `${cryptojuegos.id}`), 
@@ -120,6 +122,32 @@ export const guardarComentario = async (project, comment) =>
       }
 }
 
+
+
+export const guardarLike = async (project, like ) =>
+{
+  const user = obtenerUsuarioLocalStorage();
+
+ if(user){
+  try {
+
+    await setDoc(doc(firestore, "projects",  `${project.id}`),
+
+    {likes:{[user.email]:like}},{merge:true});
+
+    return like;
+
+  } catch (error) {
+    JSAlert.alert("", "Necesitas iniciar sesión para dar like",JSAlert.Icons.Failed,"Aceptar");
+  }
+
+ }else{
+
+    JSAlert.alert("", "Necesitas iniciar sesión para dar like",JSAlert.Icons.Failed,"Aceptar");
+ }
+
+}
+
 export const obtenerProyecto = async( project ) =>{
 
     const docRef = doc(firestore, "projects", `${project.id}`);
@@ -166,3 +194,79 @@ export const obtenerProyectosFirebase = async (setProjects) =>
 
 }
 
+
+export const obtenerGuardadosFireStore = async(user, setGuardados ) =>{
+  
+  const guardados = {
+    bolucompras:false,
+    navalElectric:false,
+    flexbox:false,
+    cryptojuegos:false,
+                      }
+
+
+    try {
+      let guardadosDB = await getDocs( collection( firestore, 'guardados' ))
+      
+      guardadosDB.forEach((guardado)=>{
+        
+        if( user )
+        {
+          let data = Object.entries(guardado.data());
+      
+          if(data.length > 0 ){
+            if( data[0][0]===user.email)
+            {
+              guardados[ guardado.id ] = data[0][1]
+            }
+          }
+      }
+
+    })
+    } catch (error) {
+      console.log(error)
+    }
+    
+    setGuardados( guardados );
+    return guardados
+  
+    
+  
+  
+}
+
+export const obtenerLikesFirestore = async() =>
+{
+
+  
+}
+
+export const guardarProyectoUsuario = async( project, user, state) =>
+{
+  await setDoc(doc(firestore, "guardados",  `${project.id}`),
+
+  {[user.email]:state},{merge:true});
+
+
+  // guardados[guardado.id] = Object.values(guardado.data())[0];
+
+  //     setGuardados( guardados );
+
+  //     console.log(guardados)
+
+}
+
+export const limpiarGuardados = async()=>{
+
+  const bolucompras = await setDoc(doc(firestore, "guardados",  'bolucompras'),
+  {})
+  const navalElectric = await setDoc(doc(firestore, "guardados",  'navalElectric'),
+  {})
+  const flexbox = await setDoc(doc(firestore, "guardados",  'flexbox'),
+  {})
+  const cryptojuegos = await setDoc(doc(firestore, "guardados",  'cryptojuegos'),
+  {})
+
+  Promise.all([bolucompras, navalElectric, flexbox, cryptojuegos])
+
+}

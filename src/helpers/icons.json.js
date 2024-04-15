@@ -40,6 +40,7 @@ export const icons = {
     heartWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/ovuho15qvkhlr4a64jpf',
     bookmark:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/e5ejrza58rm8mwpfav6g',
     bookmarkWhite:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/twllrk84amf4f6snuswr',
+    google:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/obljvkodarhe63e366m0'
 }
 
 export const skills = 

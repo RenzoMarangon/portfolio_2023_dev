@@ -12,25 +12,20 @@ import { guardarComentario, obtenerProyecto, obtenerProyectosFirebase } from '..
 
 import '../styles/App.css';
 import { useStorex } from '../helpers/store';
-import { obtenerUsuario } from '../helpers/auth';
+import { iniciarSesion, obtenerUsuario } from '../helpers/auth';
+import { icons } from '../helpers/icons.json';
 import { obtenerUsuarioLocalStorage } from '../helpers/functions';
 
+export const CommentModal = ({open, handleClose, project, setCommentsCount}) => {
 
-export const CommentModal = ({open, handleClose, project}) => {
-
-
-
-    const { title,
-      site,
-      img,
-      
-    } = project;
 
     const [ proyecto, setProyecto ] = useState( project );
     
     const [ inputValue, setInputValue ] = useState({
         text:'',
     });
+
+    const [ user, setUser ] = useState( useStorex().usuario );
   
 
     const inputEnter = (e) => {
@@ -54,15 +49,15 @@ export const CommentModal = ({open, handleClose, project}) => {
             setProyecto(nuevoProyecto);
             
             obtenerProyectosFirebase();
-
+            setCommentsCount( Object.keys(project.comentarios).length + 1 );
             
         })
     }
-    let user = obtenerUsuarioLocalStorage();
 
-    useEffect(()=>{
-      user = obtenerUsuarioLocalStorage();
-    },[])
+    useEffect( ()=>{
+      setUser( obtenerUsuarioLocalStorage() );
+    },[open] )
+
 
     return (
       <>
@@ -79,7 +74,8 @@ export const CommentModal = ({open, handleClose, project}) => {
           <DialogContent className='modal overflow-y-auto'>
 
           <DialogContentText id="alert-dialog-description">
-    
+      
+
           {user !== null ?
 
             <>
@@ -100,8 +96,13 @@ export const CommentModal = ({open, handleClose, project}) => {
             
             </>
 
-            :<div>
-              <p> Inicia sesión para poder comentar!</p>
+            :
+            <div className='flex  justify-center'>
+              <button className='flex items-center rounded-full bg-light-gray pr-2' onClick={()=>{ iniciarSesion( setUser )}}> 
+                <img src={icons.google} /> 
+
+                <p className=' text-black text-sm'>Inicia sesión con Google para poder comentar</p>
+              </button>
             </div>
 
           

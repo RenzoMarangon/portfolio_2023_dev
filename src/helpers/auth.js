@@ -2,6 +2,8 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "./firebase";
 import { mostrarAlerta } from "./functions";
 import JSAlert from "js-alert";
+import { UseContextStore } from "./ContextStore";
+import { useContext } from "react";
 
 
 const provider = new GoogleAuthProvider();
@@ -14,8 +16,6 @@ export const obtenerUsuario = () =>
 {
 
   if (auth.currentUser === null) {
-
-
     return null;
   }
 
@@ -47,10 +47,13 @@ export const iniciarSesion = (setUser) =>
       const user = {  email, displayName, photoURL}
   
       localStorage.setItem("user", JSON.stringify( user ));
-      setUser( user )
+
+      setUser( user );
+
       return user;
   
-    }).catch((error) => {
+    })
+    .catch((error) => {
       
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -59,8 +62,11 @@ export const iniciarSesion = (setUser) =>
       
       const credential = GoogleAuthProvider.credentialFromError(error);
       
+
     });
+
   }else{
+    
     setUser(u);
   }
 
@@ -75,7 +81,8 @@ export const cerrarSesion = (setUser) => {
 
       localStorage.removeItem('user');
       
-      setUser(null);
+
+      setUser( null );
 
     })
     .catch((error) => {

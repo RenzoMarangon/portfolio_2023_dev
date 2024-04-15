@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { guardarGuardados, obtenerFollows, obtenerGuardados, obtenerLikes, obtenerRefScroll, obtenerUsuarioLocalStorage } from './functions'
 import {  obtenerUsuario } from './auth'
 import { obtenerProyectos } from './functions'
+import { obtenerGuardadosFireStore } from './firestore'
 
 export const useStorex = create(() => ({
   
@@ -9,12 +10,11 @@ export const useStorex = create(() => ({
     likes : obtenerLikes(),
     usuario: obtenerUsuarioLocalStorage(),
     projects: obtenerProyectos(),
-    guardados: obtenerGuardados(),
 
     guardarFollowsStore : () => ({ follows : obtenerFollows() }),
     guardarLikesStore : () =>({ likes : obtenerLikes() }),
     guardarUsuarioStore : () =>({ usuario : obtenerUsuarioLocalStorage() }),
     guardarProyectoStore : () =>({ usuario : obtenerProyectos() }),
-    guardarGuardadosStore : ()=>({ guardados : obtenerGuardados()}),
 
 }))
+

@@ -1,48 +1,100 @@
-import React,{useState} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import { Tooltip } from '@mui/material';
 import { icons } from '../helpers/icons.json';
-import { guardarLikes, mostrarAlerta, obtenerLikes } from '../helpers/functions'
+import { guardarLikes, mostrarAlerta, obtenerUsuarioLocalStorage } from '../helpers/functions'
+import { guardarLike } from '../helpers/firestore';
 import { useStorex } from '../helpers/store';
+import JSAlert from 'js-alert';
+import { LikeModal } from './LikeModal';
+import {  UseContextStore } from '../helpers/ContextStore';
 
-export const Likes = ({project}) => {
+export const Likes = ({project, setLikesCount, likesCount}) => {
+
+    
+    const { user, setUser } = useContext( UseContextStore );
 
     const [likes, setLikes ] = useState( useStorex().likes );
 
-    const cambiarLikes = ( newLikes ) => { setLikes(newLikes) };
+    const [ like, setLike] = useState(false);
 
-    const { guardarFollowsStore } = useStorex();
+    const [ icon, setIcon ] = useState( `${like ? icons.heartWhite : icons.heart}` );
 
-    const [ icon, setIcon ] = useState( `${likes[project.id] ? icons.heartWhite : icons.heart}` );
+    const [open, setOpen] = useState(false);
+
 
     const changeImg = (icon) => 
     {
         setIcon( icon )
     }
-
-    const likear = ( ) => 
-    {
     
-        likes[project.id] = !likes[project.id];
-        
-        cambiarLikes(likes);
-        guardarLikes(likes);
-        guardarFollowsStore(likes);
-        
-        likes[project.id] ? changeImg(icons.heartWhite) : changeImg(icons.heart);
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
+    
 
 
-        mostrarAlerta(project.title, likes[project.id], "likear");
+    const cambiarLike = () => 
+    {
+        
+        if(user !== null)
+        {
+            guardarLike( project, !like ).then(()=>{
+
+                
+    
+                const newLikes = likes;
+                newLikes[project.id] = !like;
+    
+                setLikes(newLikes);
+    
+            
+                mostrarAlerta(project.title, !like, "likear");
+                
+    
+                //Cambio el valor de 'like' en el proyecto actual
+                project.likes[user.email] = !like;
+    
+                if(!like)
+                {
+                    setLikesCount( likesCount + 1 );
+                }else{
+                    setLikesCount( likesCount  - 1);
+                }
+            });
+
+        }else{
+
+            
+            handleClickOpen(true)
+
+        }
 
 
     }
 
+    useEffect(()=>{
+        
+        if(user)
+        {
+            setLike(project.likes[user?.email] ? true : false);
+        }
+    },[])
+
+    useEffect(()=>{
+        like ? changeImg(icons.heartWhite) : changeImg(icons.heart);
+    },[like])
+
 
   return (
 
-    <div className='w-7 sm:w-5 flex' onClick={likear}>
-        <Tooltip title="Me gusta" placeholder='bottom' >
-            <button ><img   src={`${ icon }`} alt='Me gusta' /></button>
-        </Tooltip>
+    
+    <div className='w-7 sm:w-5 flex' >
+        <button onClick={cambiarLike}><img src={`${ icon }`} alt='Me gusta' /></button>
+        <LikeModal  handleClose={ handleClose } open={ open } />
     </div>
 
   )
