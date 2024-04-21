@@ -10,18 +10,15 @@ import { obtenerProyectos, obtenerUsuarioLocalStorage } from '../helpers/functio
 import PostContainer from '../components/PostContainer';
 import SkillContainer from '../components/SkillContainer';
 import { guardarProyectos } from '../helpers/firestore';
+import { UseContextStore } from '../context/ContextStore';
 
 
 export const Home = () => {
 
 
-  const [ user, setUser] = useState( useStorex().usuario );
-
+  const { user } = useContext( UseContextStore );
   
   useEffect(()=>{
-    
-
-    setUser(obtenerUsuarioLocalStorage());
     
 
   },[])
@@ -39,11 +36,10 @@ export const Home = () => {
             <div className="main__header flex flex-col ">
               
               <div className='grid  grid-cols-10 mb-4 '>
-
               <Tooltip title={`${user === null ? "invitado" : user.displayName }`} placeholder='bottom'>
           
 
-                <ProfileMenu userx = {user}/>
+                <ProfileMenu />
               </Tooltip>
 
                 <input type="text" placeholder="¿En qué piensas?" className="col-span-9 placeholder-white search col-span-3 px-3 py-5 mt-1 outline-none text-white shadow bg-gray-100/50 rounded w-full" />

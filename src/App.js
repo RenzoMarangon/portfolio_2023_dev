@@ -8,7 +8,7 @@ import { Header } from './views/Header';
 import { AboutMe } from './views/AboutMe';
 import { Contact } from './views/Contact';
 import { Search } from './views/Search';
-import { ContextStore } from './helpers/ContextStore';
+import { ContextStore } from './context/ContextStore';
 
 
 
@@ -24,6 +24,7 @@ function App() {
       backgroundImage: './back.webp'
     });
   },[])
+
 
 
   return (

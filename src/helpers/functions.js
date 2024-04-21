@@ -55,7 +55,6 @@ export const obtenerLikes = () =>
     if( likes === null)
     {
         likes = proyectos;
-        localStorage.setItem("likes", JSON.stringify( likes ));
     }else{
 
         likes = JSON.parse( likes );
@@ -98,7 +97,6 @@ export const obtenerGuardados = async() =>
 
 export const  guardarLikes = (likes) =>
 {
-    localStorage.setItem("likes", JSON.stringify( likes ));
 }
 
 export const limpiarNombresDeSkill = (skill) => {

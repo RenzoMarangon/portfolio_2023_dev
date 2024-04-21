@@ -1,28 +1,20 @@
-import React, { useContext } from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-
-import '../styles/App.css';
-import { icons } from '../helpers/icons.json';
+import React, { useContext } from 'react'
 import { iniciarSesion } from '../helpers/auth';
-import { DialogTitle } from '@mui/material';
 import { UseContextStore } from '../context/ContextStore';
+import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { icons } from '../helpers/icons.json';
+import '../styles/App.css';
 
-export const LikeModal = ({ open, handleClose }) => {
-
-
+export const GuardadoModal = ({ open, handleClose }) => {
     const { setUser } = useContext(UseContextStore);
 
     const inicSesion= () => {
-
 
       iniciarSesion( setUser );
       handleClose();
 
 
     }
- 
 
     return (
       <>
@@ -37,7 +29,7 @@ export const LikeModal = ({ open, handleClose }) => {
 
 
           <DialogTitle  id="alert-dialog-title">
-            <h2 className='font-bold text-sm flex justify-center'>Inicia sesión para dar like</h2>
+            <h2 className='font-bold text-sm flex justify-center'>Inicia sesión para dar guardar el proyecto</h2>
           </DialogTitle>
             <DialogContentText id="alert-dialog-description">
                 <button className='flex items-center m-auto rounded-full bg-light-gray pr-2' onClick={()=>{inicSesion()}}> 
@@ -51,4 +43,4 @@ export const LikeModal = ({ open, handleClose }) => {
         </Dialog>
       </>
     );
-  }
+}

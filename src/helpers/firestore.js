@@ -28,7 +28,7 @@ export const navalElectric ={
     title: "Naval Electric",
     techs: 'JavaScript SASS CSS HTML',
     description: 'Sitio web realizado para Naval Electric, una empresa que realiza instalaciones eléctricas en barcos',
-    site:'https://post-itx-app.netlify.app/',
+    site:'https://naval-electric.com.ar/',
     img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/mps1gkxjykijtid1ea1q',
     imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/lv9wbuyigbgetvof1ocf',
     id:'navalElectric',
@@ -152,7 +152,6 @@ export const obtenerProyecto = async( project ) =>{
 
     const docRef = doc(firestore, "projects", `${project.id}`);
 
-
     const proyecto = await getDoc(docRef);
 
     return proyecto.data();
@@ -183,8 +182,6 @@ export const obtenerProyectosFirebase = async (setProjects) =>
 
     setProjects(prjts);
 
-    localStorage.setItem('projects',JSON.stringify(prjts))
-    
 
     return prjts;
 
@@ -254,6 +251,29 @@ export const guardarProyectoUsuario = async( project, user, state) =>
 
   //     console.log(guardados)
 
+}
+
+export const guardarGuardadosFirestore = async(project, guardado) =>
+{
+  const user = obtenerUsuarioLocalStorage();
+
+  if(user){
+   try {
+ 
+     await setDoc(doc(firestore, "projects",  `${project.id}`),
+ 
+     {guardados:{[user.email]:guardado}},{merge:true});
+ 
+     return guardado;
+ 
+   } catch (error) {
+     JSAlert.alert("", "Necesitas iniciar sesión para guardar el proyecto",JSAlert.Icons.Failed,"Aceptar");
+   }
+ 
+  }else{
+ 
+     JSAlert.alert("", "Necesitas iniciar sesión para guardar el proyecto",JSAlert.Icons.Failed,"Aceptar");
+  }
 }
 
 export const limpiarGuardados = async()=>{

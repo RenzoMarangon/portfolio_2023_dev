@@ -15,9 +15,8 @@ html{
 @import '@splidejs/react-splide/css/core';
 
 body{
-  background: rgb(247,131,130);
-background: linear-gradient(142deg, rgba(247,131,130,1) 5%, rgba(226,104,125,1) 17%, rgba(177,81,97,1) 38%, rgba(173,74,91,1) 59%, rgba(189,95,101,1) 77%, rgba(227,118,122,1) 88%, rgba(222,112,112,1) 100%);
-
+  background: rgb(132,130,247);
+  background: linear-gradient(142deg, rgba(132,130,247,1) 5%, rgba(122,104,226,1) 17%, rgba(81,89,177,1) 38%, rgba(74,88,173,1) 58%, rgba(95,128,189,1) 77%, rgba(118,153,227,1) 88%, rgba(112,166,222,1) 100%);
 }
 
 

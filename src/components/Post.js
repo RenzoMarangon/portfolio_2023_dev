@@ -23,6 +23,7 @@ const Post = ({project}) => {
   const [ commentsCount, setCommentsCount ] = useState( Object.keys(project.comentarios).length )
  
   const [ likesCount, setLikesCount ] = useState( Object.entries(project.likes).filter( (l) => l[1]===true ).length )
+  const [ guardadosCount, setGuardadosCount ] = useState( Object.entries(project.guardados).filter( (l) => l[1]===true ).length )
 
 
 
@@ -116,8 +117,8 @@ const Post = ({project}) => {
               <button onClick={ handleClickOpen }><img className='w-7 sm:w-5' src={`${icons.message}`} alt='Comentar' /></button>
           </StyledBadge>
 
-        <StyledBadge  badgeContent={ likesCount } color="primary">
-          <Guardado project={project} />
+        <StyledBadge  badgeContent={ guardadosCount } color="primary">
+          <Guardado project={project} guardadosCount = { guardadosCount } setGuardadosCount = { setGuardadosCount} />
         </StyledBadge>
 
 

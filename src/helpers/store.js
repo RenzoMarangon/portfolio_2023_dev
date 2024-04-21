@@ -9,12 +9,10 @@ export const useStorex = create(() => ({
     follows : obtenerFollows(),
     likes : obtenerLikes(),
     usuario: obtenerUsuarioLocalStorage(),
-    projects: obtenerProyectos(),
 
     guardarFollowsStore : () => ({ follows : obtenerFollows() }),
     guardarLikesStore : () =>({ likes : obtenerLikes() }),
     guardarUsuarioStore : () =>({ usuario : obtenerUsuarioLocalStorage() }),
-    guardarProyectoStore : () =>({ usuario : obtenerProyectos() }),
 
 }))
 

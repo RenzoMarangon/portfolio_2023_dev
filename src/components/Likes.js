@@ -6,14 +6,14 @@ import { guardarLike } from '../helpers/firestore';
 import { useStorex } from '../helpers/store';
 import JSAlert from 'js-alert';
 import { LikeModal } from './LikeModal';
-import {  UseContextStore } from '../helpers/ContextStore';
+import {  UseContextStore } from '../context/ContextStore';
 
 export const Likes = ({project, setLikesCount, likesCount}) => {
 
     
     const { user, setUser } = useContext( UseContextStore );
 
-    const [likes, setLikes ] = useState( useStorex().likes );
+    const [likes, setLikes ] = useState( {} );
 
     const [ like, setLike] = useState(false);
 
@@ -44,17 +44,13 @@ export const Likes = ({project, setLikesCount, likesCount}) => {
         {
             guardarLike( project, !like ).then(()=>{
 
-                
-    
                 const newLikes = likes;
                 newLikes[project.id] = !like;
     
                 setLikes(newLikes);
     
-            
                 mostrarAlerta(project.title, !like, "likear");
                 
-    
                 //Cambio el valor de 'like' en el proyecto actual
                 project.likes[user.email] = !like;
     
@@ -68,12 +64,9 @@ export const Likes = ({project, setLikesCount, likesCount}) => {
 
         }else{
 
-            
             handleClickOpen(true)
 
         }
-
-
     }
 
     useEffect(()=>{

@@ -2,8 +2,10 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "./firebase";
 import { mostrarAlerta } from "./functions";
 import JSAlert from "js-alert";
-import { UseContextStore } from "./ContextStore";
+import { UseContextStore } from "../context/ContextStore";
 import { useContext } from "react";
+import { obtenerGuardadosFireStore } from "./firestore";
+import { proyectosLimpios } from "./proyects.json";
 
 
 const provider = new GoogleAuthProvider();
@@ -22,14 +24,16 @@ export const obtenerUsuario = () =>
   const {displayName, photoURL, email} = auth.currentUser;
 
   const user = { displayName, photoURL, email}
+
   localStorage.setItem( 'user' , JSON.stringify( user ) );
+
   return user;
 
  
 }
 
 
-export const iniciarSesion = (setUser) =>
+export const iniciarSesion = (setUser ) =>
 {
 
   const u = obtenerUsuario()
@@ -46,9 +50,8 @@ export const iniciarSesion = (setUser) =>
      
       const user = {  email, displayName, photoURL}
   
-      localStorage.setItem("user", JSON.stringify( user ));
-
       setUser( user );
+      localStorage.setItem('user', JSON.stringify(user));
 
       return user;
   
@@ -74,15 +77,14 @@ export const iniciarSesion = (setUser) =>
 }
 
 
-export const cerrarSesion = (setUser) => {
+export const cerrarSesion = (setUser, setGuardados) => {
   auth.signOut()
     .then(() => {
       JSAlert.alert("", "Sesión cerrada con éxito",JSAlert.Icons.Success,"Aceptar");
 
       localStorage.removeItem('user');
-      
-
       setUser( null );
+      setGuardados( proyectosLimpios );
 
     })
     .catch((error) => {

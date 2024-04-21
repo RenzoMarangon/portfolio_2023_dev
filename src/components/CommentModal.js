@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -15,9 +15,12 @@ import { useStorex } from '../helpers/store';
 import { iniciarSesion, obtenerUsuario } from '../helpers/auth';
 import { icons } from '../helpers/icons.json';
 import { obtenerUsuarioLocalStorage } from '../helpers/functions';
+import { UseContextStore } from '../context/ContextStore';
 
 export const CommentModal = ({open, handleClose, project, setCommentsCount}) => {
 
+
+    const { user, setUser } = useContext( UseContextStore);
 
     const [ proyecto, setProyecto ] = useState( project );
     
@@ -25,8 +28,6 @@ export const CommentModal = ({open, handleClose, project, setCommentsCount}) => 
         text:'',
     });
 
-    const [ user, setUser ] = useState( useStorex().usuario );
-  
 
     const inputEnter = (e) => {
         const { name, value } = e.target;
@@ -50,13 +51,14 @@ export const CommentModal = ({open, handleClose, project, setCommentsCount}) => 
             
             obtenerProyectosFirebase();
             setCommentsCount( Object.keys(project.comentarios).length + 1 );
-            
         })
     }
 
-    useEffect( ()=>{
-      setUser( obtenerUsuarioLocalStorage() );
-    },[open] )
+    const inicSesion = () =>
+    {
+      iniciarSesion( setUser );
+      handleClose();
+    }
 
 
     return (
@@ -98,7 +100,7 @@ export const CommentModal = ({open, handleClose, project, setCommentsCount}) => 
 
             :
             <div className='flex  justify-center'>
-              <button className='flex items-center rounded-full bg-light-gray pr-2' onClick={()=>{ iniciarSesion( setUser )}}> 
+              <button className='flex items-center rounded-full bg-light-gray pr-2' onClick={()=>{ inicSesion()}}> 
                 <img src={icons.google} /> 
 
                 <p className=' text-black text-sm'>Inicia sesión con Google para poder comentar</p>
@@ -129,15 +131,7 @@ export const CommentModal = ({open, handleClose, project, setCommentsCount}) => 
             {
             }
           </DialogContentText>
-
-        
-
-
-
           </DialogContent>
-          
-        
-
         </Dialog>
       </>
     );

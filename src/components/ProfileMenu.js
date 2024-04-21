@@ -1,18 +1,15 @@
-import React, { useContext, useEffect, useState} from 'react'
+import React, { useContext, useState} from 'react'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { icons } from '../helpers/icons.json';
 import { cerrarSesion, iniciarSesion, obtenerUsuario } from '../helpers/auth';
-import {  useStorex } from '../helpers/store';
-import { obtenerUsuarioLocalStorage } from '../helpers/functions';
 import { proyectosLimpios } from '../helpers/proyects.json';
-import { UseContextStore } from '../helpers/ContextStore';
-import { obtenerGuardadosFireStore } from '../helpers/firestore';
+import { UseContextStore } from '../context/ContextStore';
 
 
 
 export const ProfileMenu = ( ) => {
-    const { user, setUser, setLikes, setGuardados, guardados } = useContext( UseContextStore );
+    const { user, setUser, setGuardados } = useContext( UseContextStore );
 
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -30,31 +27,21 @@ export const ProfileMenu = ( ) => {
 
     const iniSesion = async() =>
     {
-      iniciarSesion(setUser);
+      iniciarSesion(setUser, setGuardados);
 
-      
       handleClose();
     }
 
     const cecSesion = () => 
     {
-      // setUser(null);
-      
-      setGuardados(proyectosLimpios);
-      setLikes(proyectosLimpios);
-      cerrarSesion(setUser)
+      setGuardados( proyectosLimpios)
+      cerrarSesion(setUser, setGuardados)
+      setGuardados( proyectosLimpios)
+
       handleClose();
     }
 
-    useEffect(()=>{
-
-      obtenerGuardadosFireStore( user, setGuardados );
-    },[user])
   
-
-
-
-
 
   return (
 
@@ -67,8 +54,7 @@ export const ProfileMenu = ( ) => {
       onClick={handleClick}
       
     >
-
-        <img className='p-1 rounded-full 'src={`${user !== null ? user.photoURL : icons.user}`}  alt={`${user !== null ? user.displayName : 'Invitado' }`} />
+        <img className='p-1 rounded-full 'src={`${user === null ? icons.user : user.photoURL}`}  alt={`${user !== null ? user.displayName : 'Invitado' }`} />
     </button>
 
     <Menu
@@ -82,9 +68,6 @@ export const ProfileMenu = ( ) => {
       className='ml-2 mt-1'
     >
     
-    
-      
-
     {user === null ? 
                                 <MenuItem onClick={()=>{iniSesion()}} >Iniciar sesión</MenuItem>
 

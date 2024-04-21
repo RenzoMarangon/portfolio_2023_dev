@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react'
-import { obtenerLikes, obtenerUsuarioLocalStorage } from './functions';
-import { obtenerUsuario } from './auth';
-import { proyectosLimpios } from './proyects.json';
+import { obtenerLikes, obtenerUsuarioLocalStorage } from '../helpers/functions';
+import { obtenerUsuario } from '../helpers/auth';
+import { proyectosLimpios } from '../helpers/proyects.json';
 
 
 const UseContextStore = createContext();
@@ -11,7 +11,7 @@ const ContextStore = ({children}) => {
 
     const [ user, setUser ] = useState( obtenerUsuarioLocalStorage() );
 
-    const [ likes, setLikes ] = useState( obtenerLikes() );
+    const [ likes, setLikes ] = useState( proyectosLimpios );
 
     const [ guardados, setGuardados ] = useState( proyectosLimpios );
 

@@ -4,7 +4,7 @@ import { useStorex } from '../helpers/store';
 import Post  from './Post';
 import { ProgressCircle } from './ProgressCircle';
 import { obtenerUsuarioLocalStorage } from '../helpers/functions';
-import { UseContextStore } from '../helpers/ContextStore';
+import { UseContextStore } from '../context/ContextStore';
 
 const PostContainer = memo(function() {
 
