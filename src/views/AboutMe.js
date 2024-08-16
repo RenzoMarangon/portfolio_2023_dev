@@ -42,7 +42,7 @@ export const AboutMe = () => {
             
             </p>
 
-            <a href='https://drive.google.com/file/d/1IwrqJGlMuVAJoI9AuPK42VEcE7HJG3Ss/view?usp=drive_link' target='_BLANK' className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' > Descargar cv</a>
+            <a href='https://drive.google.com/file/d/1v5rb6IKIsHtiRzcWCXJSzWaGaffNgzgQ/view?usp=sharing' target='_BLANK' className=' my-5 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm ' > Descargar cv</a>
 
 
         </div>
