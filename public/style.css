@@ -15,9 +15,12 @@ html{
 @import '@splidejs/react-splide/css/core';
 
 body{
-  background: rgb(132,130,247);
-  background: linear-gradient(142deg, rgba(132,130,247,1) 5%, rgba(122,104,226,1) 17%, rgba(81,89,177,1) 38%, rgba(74,88,173,1) 58%, rgba(95,128,189,1) 77%, rgba(118,153,227,1) 88%, rgba(112,166,222,1) 100%);
-}
+  background-image: url('./Portfolio.webp');
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+  height: 100vh; /* Ajusta la altura del contenedor al 100% del alto de la vista */}
 
 
 button, input {
@@ -167,5 +170,18 @@ transition: all ease-in-out .1s;
 
 .agrandar:hover{
 transform: scale(1.1);
+}
+
+.h-80{
+  height: 80% !important;
+}
+
+.last-project{
+  background-image: url('https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/dwgxcy18towbvyxo1vj0');
+  background-size:cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%; 
+  height: 100%; 
 }
 

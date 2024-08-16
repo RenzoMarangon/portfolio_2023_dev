@@ -85,7 +85,7 @@ const Post = ({project}) => {
         
         {/* <!--POST MAIN--> */}
         
-          <div onClick={confirmacion} className="post__main p-2 sm:p-4 cursor-pointer" >
+          <div onClick={confirmacion} className="post__main p-2 sm:p-4 cursor-pointer h-100 " >
               
               <div  className={`relative w-100 h-50 col-span-2 sm:col-span-1 sm:row-span-1 w-full`}>
 
@@ -97,7 +97,7 @@ const Post = ({project}) => {
                   effect="blur"
                   className=' z-1 top-0 w-full h-60 m-auto  object-cover-center rounded-3xl '/> */}
                 <img 
-                  className=' z-1 top-0 w-full h-60 sm:h-80 mx-auto  object-cover-center rounded-3xl ' 
+                  className=' z-1 top-0 w-full h-100 mx-auto  object-cover-center rounded-3xl ' 
                   src={`${screen==='pc' ? project.img : screen==='mobile' && project.imgResponsive}`} 
                   alt={`${project.title}`} />        
               

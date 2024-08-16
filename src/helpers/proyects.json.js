@@ -1,11 +1,11 @@
 export const proyectos = [
   {
-    title: "Bolucompras",
-    techs: 'JavaScript React Firebase SASS CSS HTML',
-    description: 'E-commerce realizado con React y Firebase para la autenticación de usuarios y el backend.',
-    site:'https://bolucompras.netlify.app/',
-    img:'https://res.cloudinary.com/derznxjam/image/upload/v1699486018/portfolio/bolucompras_dfuplp.jpg',
-    id:'bolucompras'
+    title: "BnBuddy",
+    techs: 'JavaScript Boostrap CSS',
+    description: 'Guías digitales para alojamientos',
+    site:'https://bnbuddy.netlify.app/',
+    img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/dwgxcy18towbvyxo1vj0',
+    id:'bnbuddy'
   },
   {
     title: "Naval Electric",
@@ -32,6 +32,7 @@ export const proyectos = [
     id:'cryptojuegos'
   },
 ];
+
 
 export const proyectosLimpios =
 {

@@ -11,7 +11,7 @@ import PostContainer from '../components/PostContainer';
 import SkillContainer from '../components/SkillContainer';
 import { guardarProyectos } from '../helpers/firestore';
 import { UseContextStore } from '../context/ContextStore';
-
+import { proyectos } from '../helpers/proyects.json'
 
 export const Home = () => {
 
@@ -117,11 +117,8 @@ export const Home = () => {
                 <h4 className="col-span-2 text-center">Último proyecto</h4>
             
               
-                <div className="work p-2 bg-pink-300/50 h-full w-11/12 p-auto  rounded-2xl">
-                
-              </div>
-
-
+                <div className="work p-2 w-11/12 p-auto last-project rounded-2xl">
+                </div>
 
             </div>
             {/*Espacio para el nav en mobile */}

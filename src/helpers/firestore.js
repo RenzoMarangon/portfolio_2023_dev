@@ -11,18 +11,18 @@ import { obtenerUsuarioLocalStorage } from "./functions";
 
 
 
-export const bolucompras = {
-    title: "Bolucompras",
-    techs: 'JavaScript React Firebase SASS CSS HTML',
-    description: 'E-commerce realizado con React y Firebase para la autenticación de usuarios y el backend.',
-    site:'https://bolucompras.netlify.app/',
-    img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/unp5tmstwros0uj51d8a',
-    imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/kg8uwqcvez7whowhl9bo',
-    id:'bolucompras',
+export const bnBuddy = {
+    title: "BnBuddy",
+    techs: 'JavaScript Boostrap CSS',
+    description: 'Guías digitales para alojamientos',
+    site:'https://bnbuddy.netlify.app/',
+    img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/dwgxcy18towbvyxo1vj0',
+    imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/dwgxcy18towbvyxo1vj0',
     comentarios:{},
     guardados:{},
     likes:{},
-  }
+    id:'bnbuddy'
+  };
 
 export const navalElectric ={
     title: "Naval Electric",
@@ -31,7 +31,7 @@ export const navalElectric ={
     site:'https://naval-electric.com.ar/',
     img:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/mps1gkxjykijtid1ea1q',
     imgResponsive:'https://res.cloudinary.com/derznxjam/image/upload/f_auto,q_auto/v1/portfolio/lv9wbuyigbgetvof1ocf',
-    id:'navalElectric',
+    id:'cnavalElectric',
     comentarios:{},
     guardados:{},
     likes:{},
@@ -63,21 +63,21 @@ export const navalElectric ={
   }
 
 
-export const guardarProyectos = async (project) =>
+export const guardarProyectos = async () =>
 {
     try {
 
-        await setDoc(doc(firestore, "projects", `${cryptojuegos.id}`), 
-            cryptojuegos
-        );
-
-        await setDoc(doc(firestore, "projects", `${bolucompras.id}`), 
-            bolucompras
-        );
+        // await setDoc(doc(firestore, "projects", `${bnBuddy.id}`), 
+        //   bnBuddy
+        // );
 
         await setDoc(doc(firestore, "projects", `${navalElectric.id}`), 
-            navalElectric
+          navalElectric
         );
+
+        // await setDoc(doc(firestore, "projects", `${cryptojuegos.id}`), 
+        //     cryptojuegos
+        // );
 
         await setDoc(doc(firestore, "projects", `${flexbox.id}`), 
             flexbox
