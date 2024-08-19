@@ -38,7 +38,7 @@ export const AboutMe = () => {
 
             <p className='w-9/12 sm:w-10/12'>
                 
-            Profesor de Informática, cursando una tecnicatura universitaria en Sistemas en la UTN. Además, he completado diversos cursos de programación, abarcando temas como node, react y testing QA manual.
+            Estudiante de Tecnicatura en Programación en la UTN y profesor de nivel superior en Informática. Poseo sólidos conocimientos en el armado y reparación de computadoras de escritorio y notebooks.
             
             </p>
 
@@ -60,15 +60,17 @@ export const AboutMe = () => {
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Next.js</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Node</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Express.js</li>
+                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>C#</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>C++</li>
-                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Git</li>
+                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>SQL Server</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>MongoDB</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Firebase</li>
+                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Git</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Socket.io</li>
-                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Sass</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Css</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Tailwind</li>
                 <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Bootstrap</li>
+                <li className='m-1 px-2 py-1 rounded-full bg-gray-100/25 shadow backdrop-blur-sm'>Sass</li>
             </ul>
 
             
