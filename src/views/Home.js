@@ -17,12 +17,6 @@ export const Home = () => {
 
 
   const { user } = useContext( UseContextStore );
-  
-  useEffect(()=>{
-    
-
-  },[])
-
 
   return (
     <>
